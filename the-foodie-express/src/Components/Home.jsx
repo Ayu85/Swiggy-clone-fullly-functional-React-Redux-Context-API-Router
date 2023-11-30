@@ -4,6 +4,12 @@ import { API } from '../utils/Constants'
 import SearchBar from './SearchBar'
 import Shimmer from './Shimmer'
 import Error from './Error'
+import pizza from "../assets/Pizza.webp"
+import burger from "../assets/Burger.webp"
+import cake from "../assets/Cakes.webp"
+import chinese from "../assets/Chinese.webp"
+import dosa from "../assets/Dosa.webp"
+import biryani from "../assets/Biryani_2.webp"
 const Home = ({ dark }) => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
@@ -56,6 +62,14 @@ const Home = ({ dark }) => {
                     console.log(d);
                 }} style={dark === true ? darkStyle : lightStyle}>Search</button>
             </div></>
+            <div className='flex justify-center gap-5 mt-10'>
+                <img src={pizza} width={130} alt="pizza" />
+                <img src={burger} width={130} alt="pizza" />
+                <img src={cake} width={130} alt="pizza" />
+                <img src={chinese} width={130} alt="pizza" />
+                <img src={dosa} width={130} alt="pizza" />
+                <img src={biryani} width={130} alt="pizza" />
+            </div>
             <h2 className='font-bold  text-2xl w-[80%] ml-[50%] -translate-x-[46%] mt-16 name'>Restaurants with online food delivery in Varanasi</h2>
             <div className='flex justify-center mt-5 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
                 {/* <Card {...restaurantData[2]?.info} /> */}
