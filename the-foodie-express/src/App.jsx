@@ -3,6 +3,7 @@ import SearchBar from "./Components/SearchBar"
 import Home from "./Components/Home"
 import About from "./Components/About"
 import { useState } from "react"
+import Pizza from "./Components/Pizza"
 import {
   createBrowserRouter,
   Outlet,
@@ -36,6 +37,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />
+      },
+      {
+        path: '/pizza',
+        element: <Pizza />
       }
 
     ]

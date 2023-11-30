@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card'
 import { API } from '../utils/Constants'
 import SearchBar from './SearchBar'
+import { Link } from 'react-router-dom'
 import Shimmer from './Shimmer'
 import Error from './Error'
 import pizza from "../assets/Pizza.webp"
@@ -14,17 +15,7 @@ const Home = ({ dark }) => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("")
-    const darkStyle = {
-        background: "#35333f",
-        color: "white",
-        transition: "all .2s "
-    }
-    const lightStyle = {
-        background: "#de9c37",
-        color: "black",
-        transition: "all .2s "
 
-    }
 
     useEffect(() => {
         const getDataAPI = async () => {
@@ -46,9 +37,9 @@ const Home = ({ dark }) => {
     // console.log("fil", filteredData);
     // if (filteredData.length == 0)
     //     return <Error />
-    return filteredData.length === 0 ? <Shimmer /> : (
+    return filteredData?.length === 0 ? <Shimmer /> : (
         <>
-            <><div className='flex justify-center mt-5  mx-16'>
+            <><div className='flex justify-center mt-5  mx-16 '>
                 <input type="text" className='border-[#de9c37] border w-[550px] h-10 rounded-l-xl pl-2 text-[#2d2e32] focus:outline-none transition-all focus-within:bg-[#de9b3716]'
                     onChange={(e) => {
                         setSearchText(e.target.value)
@@ -60,10 +51,10 @@ const Home = ({ dark }) => {
                     const d = getFilteredData(searchText);
                     setFilteredData(d);
                     console.log(d);
-                }} style={dark === true ? darkStyle : lightStyle}>Search</button>
+                }} >Search</button>
             </div></>
             <div className='flex justify-center gap-5 mt-10'>
-                <img src={pizza} width={130} alt="pizza" />
+                <Link to={"/pizza"}> <img src={pizza} width={130} alt="pizza" /></Link>
                 <img src={burger} width={130} alt="pizza" />
                 <img src={cake} width={130} alt="pizza" />
                 <img src={chinese} width={130} alt="pizza" />
@@ -74,7 +65,7 @@ const Home = ({ dark }) => {
             <div className='flex justify-center mt-5 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
                 {/* <Card {...restaurantData[2]?.info} /> */}
                 {
-                    filteredData.map((restaurants) => {
+                    filteredData?.map((restaurants) => {
                         return <Card {...restaurants.info} />
                     })
                 }
