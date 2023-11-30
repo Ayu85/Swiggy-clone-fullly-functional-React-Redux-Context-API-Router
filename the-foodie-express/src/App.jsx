@@ -1,6 +1,7 @@
 import Header from "./Components/Header"
 import SearchBar from "./Components/SearchBar"
 import Home from "./Components/Home"
+import FoodTypeBar from "./Components/FoodTypeBar"
 import { useState } from "react"
 import {
   createBrowserRouter,
@@ -42,6 +43,7 @@ function App() {
         </label>
       </>
       <Header dark={dark} />
+      <FoodTypeBar />
       <Home dark={dark} />
 
     </div>
