@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { imageAPI } from '../utils/Constants'
-import star from "../assets/star.png"
-import Shimmer from './Shimmer'
-import { pizzaAPI } from '../utils/Constants'
-import { mockPizzaData } from '../utils/mockData'
-const PizzaCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
+import React from 'react'
+import { mockBurgerData } from '../utils/mockData'
+const BurgerCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     return (
         <div>
             <div className='w-[250px] aspect-square  flex flex-col hover:scale-[1.02] transition-all'>
@@ -22,13 +18,12 @@ const PizzaCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId
         </div>
     )
 }
-const Pizza = () => {
+const Burger = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        setData(mockPizzaData)
+        setData(mockBurgerData)
     }, [])
-
     return data.length === 0 ? <Shimmer /> : (
         <div className='mt-10 flex flex-wrap flex-col  justify-center w-[75%] ml-[50%] -translate-x-[50%]'>
             <h1 className='text-5xl font-bold tracking-wide font-sans text-slate-700 '>Pizza</h1>
@@ -39,12 +34,13 @@ const Pizza = () => {
                 {
                     // <PizzaCard {...slicedData[0]?.card?.card?.info} />
                     data?.map((items) => {
-                        return <PizzaCard {...items?.card?.card?.info} />
+                        return <BurgerCard {...items?.card?.card?.info} />
                     })
                 }
             </div>
         </div>
     )
+
 }
 
-export default Pizza
+export default Burger
