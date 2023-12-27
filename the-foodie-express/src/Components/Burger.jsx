@@ -26,10 +26,11 @@ const BurgerCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageI
 const Burger = () => {
     const [data, setData] = useState(mockBurgerData)
     const [filteredData, setFilteredData] = useState(mockBurgerData)
-
+    const [isTopRated, setTopRated] = useState(true)
     useEffect(() => {
         setData(mockBurgerData)
         setFilteredData(mockBurgerData)
+        // setTopRated(false)
     }, [])
     const filterBurger = () => {
         return data.filter((d) => {
@@ -41,10 +42,17 @@ const Burger = () => {
             <h1 className='text-5xl font-bold tracking-wide font-sans text-slate-700 '>Burger</h1>
             <p className='text-xl text-slate-500 font-semibold tracking-wide mt-2'>Satisfy your cravings with these fresh and flavoursome burgers.</p>
             <div onClick={() => {
-                console.log(data)
-                const x = filterBurger();
-                setFilteredData(x)
-            }} className='bg-slate-50 w-32 px-2 flex items-center gap-1 cursor-pointer hover:bg-slate-200 hover:border-slate-600 transition-all justify-center py-2 mt-5 rounded-full text-base  border shadow-md shadow-slate-300 ring-1 ring-slate-200 '>
+                if (isTopRated === true) {
+                    setTopRated(false)
+                    const x = filterBurger();
+                    setFilteredData(x)
+                }
+                else {
+                    setTopRated(true)
+                    setFilteredData(data)
+                }
+
+            }} style={isTopRated === false ? { border: "1px solid gray", backgroundColor: "#334155", color: "white " } : { border: "1px solid green" }} className='bg-slate-50 w-32 px-2 flex items-center gap-1 cursor-pointer hover:bg-slate-200 hover:border-slate-600 transition-all justify-center py-2 mt-5 rounded-full text-base  border  '>
                 Top Rated <img src={star} className='w-5 h-5' alt="" /></div>
             <p className='text-2xl  font-semibold tracking-wide mt-6 text-slate-700'>Restaurants to explore</p>
             <div className='flex flex-wrap gap-5  mt-5'>
@@ -55,7 +63,7 @@ const Burger = () => {
                     })
                 }
             </div>
-        </div>
+        </div >
     )
 
 }
