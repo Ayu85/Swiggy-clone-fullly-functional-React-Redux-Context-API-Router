@@ -865,135 +865,7 @@ export const mockPizzaData = [
 ]
 export const mockBurgerData = [
 
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.InlineViewFilterSortWidget",
-                "sortConfigs": [
-                    {
-                        "key": "relevance",
-                        "title": "Relevance (Default)",
-                        "selected": true,
-                        "defaultSelection": true
-                    },
-                    {
-                        "key": "deliveryTimeAsc",
-                        "title": "Delivery Time"
-                    },
-                    {
-                        "key": "modelBasedRatingDesc",
-                        "title": "Rating"
-                    },
-                    {
-                        "key": "costForTwoAsc",
-                        "title": "Cost: Low to High"
-                    },
-                    {
-                        "key": "costForTwoDesc",
-                        "title": "Cost: High to Low"
-                    }
-                ],
-                "restaurantCount": 14,
-                "facetList": [
-                    {
-                        "label": "Veg/Non-veg",
-                        "id": "isVeg",
-                        "selection": "SELECT_TYPE_SINGLESELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Pure veg",
-                                "id": "isVegfacetquery2",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Non Veg",
-                                "id": "isVegfacetquery3",
-                                "analytics": {}
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_FLATTENED",
-                        "subLabel": "Filter by"
-                    },
-                    {
-                        "label": "Delivery Time",
-                        "id": "deliveryTime",
-                        "selection": "SELECT_TYPE_SINGLESELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Less than 45 mins",
-                                "id": "deliveryTimefacetquery3",
-                                "analytics": {}
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_FLATTENED",
-                        "subLabel": "Filter by"
-                    },
-                    {
-                        "label": "Cost for two",
-                        "id": "costForTwo",
-                        "selection": "SELECT_TYPE_MULTISELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Rs. 300-Rs. 600",
-                                "id": "costForTwofacetquery3",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Less than Rs. 300",
-                                "id": "costForTwofacetquery5",
-                                "analytics": {},
-                                "openFilter": true
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_HALF_CARD",
-                        "subLabel": "Filter by"
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget",
-                "layout": {
-                    "rows": 1,
-                    "widgetPadding": {
-                        "left": 16,
-                        "top": 20,
-                        "right": 16,
-                        "bottom": 16
-                    },
-                    "scrollBar": {},
-                    "widgetTheme": {
-                        "defaultMode": {
-                            "backgroundColour": "#FFFFFF",
-                            "theme": "THEME_TYPE_LIGHT"
-                        },
-                        "darkMode": {
-                            "backgroundColour": "#1B3028",
-                            "theme": "THEME_TYPE_DARK"
-                        }
-                    }
-                },
-                "id": "restaurantCountWidget",
-                "gridElements": {
-                    "infoWithStyle": {
-                        "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.TextBoxV2",
-                        "text": "Restaurants to explore",
-                        "headerStyling": {
-                            "textSize": 15,
-                            "textColor": "text_color_highest_emphasis",
-                            "textFontName": "FONT_NAME_HEADER_H5",
-                            "maxLines": 1
-                        }
-                    }
-                }
-            }
-        }
-    },
+
     {
         "card": {
             "card": {
@@ -1767,6 +1639,819 @@ export const mockBurgerData = [
                 "analytics": {},
                 "cta": {
                     "link": "swiggy://menu?restaurant_id=488096&source=collection&query=Burger",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    }
+]
+export const mockCakeData = [
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "538975",
+                    "name": "7th Heaven",
+                    "cloudinaryImageId": "f4fyvaxlkonjz1har66b",
+                    "locality": "Jawahar Nagar Colony",
+                    "areaName": "Bhelupur",
+                    "costForTwo": "₹300 for two",
+                    "cuisines": [
+                        "Bakery",
+                        "Desserts",
+                        "Pizzas"
+                    ],
+                    "avgRating": 4.4,
+                    "veg": true,
+                    "parentId": "19",
+                    "avgRatingString": "4.4",
+                    "totalRatingsString": "500+",
+                    "promoted": true,
+                    "adTrackingId": "cid=9723483~p=1~eid=0000018c-ab54-4ee3-41f6-ec42003a0140~srvts=1703681478371~83656",
+                    "sla": {
+                        "deliveryTime": 38,
+                        "lastMileTravel": 5.6,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "38 mins",
+                        "lastMileTravelString": "5.6 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 22:30:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textExtendedBadges": {},
+                            "textBased": {},
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "description": "pureveg",
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=538975&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "483484",
+                    "name": "Pulpy Pastry",
+                    "cloudinaryImageId": "606c5fbaa74452590d291da0f23d3410",
+                    "locality": "Gurudham Colony",
+                    "areaName": "Bhelupur",
+                    "costForTwo": "₹400 for two",
+                    "cuisines": [
+                        "Bakery",
+                        "Pizzas",
+                        "Cakes and Pastries"
+                    ],
+                    "avgRating": 4.1,
+                    "veg": true,
+                    "parentId": "290990",
+                    "avgRatingString": "4.1",
+                    "totalRatingsString": "1K+",
+                    "promoted": true,
+                    "adTrackingId": "cid=10056186~p=2~eid=0000018c-ab54-4ee3-41f6-ec43003a0224~srvts=1703681478371~83656",
+                    "sla": {
+                        "deliveryTime": 39,
+                        "lastMileTravel": 5.6,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "39 mins",
+                        "lastMileTravelString": "5.6 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "₹125 OFF",
+                        "subHeader": "ABOVE ₹199",
+                        "discountTag": "FLAT DEAL"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=483484&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "77334",
+                    "name": "VCD Bakery",
+                    "cloudinaryImageId": "0a12cd5be7b4f4760f3ee8b77723397d",
+                    "locality": "Jawahar Nagar",
+                    "areaName": "Bhelupur",
+                    "costForTwo": "₹300 for two",
+                    "cuisines": [
+                        "Bakery",
+                        "Beverages",
+                        "Pizzas",
+                        "Snacks"
+                    ],
+                    "avgRating": 4.1,
+                    "veg": true,
+                    "parentId": "221736",
+                    "avgRatingString": "4.1",
+                    "totalRatingsString": "1K+",
+                    "promoted": true,
+                    "adTrackingId": "cid=10056184~p=3~eid=0000018c-ab54-4ee3-41f6-ec44003a0302~srvts=1703681478371~83656",
+                    "sla": {
+                        "deliveryTime": 44,
+                        "lastMileTravel": 5.6,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "44 mins",
+                        "lastMileTravelString": "5.6 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "description": "pureveg",
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png"
+                                        }
+                                    }
+                                ]
+                            },
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "₹125 OFF",
+                        "subHeader": "ABOVE ₹199",
+                        "discountTag": "FLAT DEAL"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=77334&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "113460",
+                    "name": "P V Gold Bakers",
+                    "cloudinaryImageId": "vckqczva2imvpkguntku",
+                    "locality": "Police Chowki",
+                    "areaName": "Jagatganj",
+                    "costForTwo": "₹400 for two",
+                    "cuisines": [
+                        "Bakery",
+                        "Chinese",
+                        "South Indian"
+                    ],
+                    "avgRating": 4,
+                    "veg": true,
+                    "parentId": "153340",
+                    "avgRatingString": "4.0",
+                    "totalRatingsString": "1K+",
+                    "promoted": true,
+                    "adTrackingId": "cid=9721143~p=4~eid=0000018c-ab54-4ee3-41f6-ec45003a040d~srvts=1703681478371~83656",
+                    "sla": {
+                        "deliveryTime": 27,
+                        "lastMileTravel": 2.9,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "27 mins",
+                        "lastMileTravelString": "2.9 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 02:00:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textExtendedBadges": {},
+                            "textBased": {},
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                            "description": "pureveg"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "₹125 OFF",
+                        "subHeader": "ABOVE ₹249",
+                        "discountTag": "FLAT DEAL"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=113460&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "149572",
+                    "name": "Chestnut Cafe & Bakery",
+                    "cloudinaryImageId": "uyl1sjsitaxx0xysmipw",
+                    "locality": "Ravindrapuri colony",
+                    "areaName": "Bhelupur",
+                    "costForTwo": "₹450 for two",
+                    "cuisines": [
+                        "Bakery",
+                        "Cakes and Pastries"
+                    ],
+                    "avgRating": 4.4,
+                    "veg": true,
+                    "parentId": "59997",
+                    "avgRatingString": "4.4",
+                    "totalRatingsString": "1K+",
+                    "promoted": true,
+                    "adTrackingId": "cid=10141413~p=5~eid=0000018c-ab54-4ee3-41f6-ec46003a0505~srvts=1703681478371~83656",
+                    "sla": {
+                        "deliveryTime": 35,
+                        "lastMileTravel": 5.6,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "35 mins",
+                        "lastMileTravelString": "5.6 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                            "description": "pureveg"
+                                        }
+                                    }
+                                ]
+                            },
+                            "textExtendedBadges": {},
+                            "textBased": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "50% OFF",
+                        "subHeader": "UPTO ₹100"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=149572&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "370975",
+                    "name": "Gourmet Ice Cream Cakes by Baskin Robbins",
+                    "cloudinaryImageId": "d679c532ca07a6f3fd6d89d603861412",
+                    "locality": "Gulab Bagh",
+                    "areaName": "Sigra",
+                    "costForTwo": "₹300 for two",
+                    "cuisines": [
+                        "Ice Cream Cakes",
+                        "Desserts",
+                        "Ice Cream",
+                        "Bakery"
+                    ],
+                    "avgRating": 4.2,
+                    "veg": true,
+                    "parentId": "21932",
+                    "avgRatingString": "4.2",
+                    "totalRatingsString": "20+",
+                    "sla": {
+                        "deliveryTime": 31,
+                        "lastMileTravel": 2.3,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "31 mins",
+                        "lastMileTravelString": "2.3 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "20% OFF",
+                        "subHeader": "UPTO ₹50"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=370975&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "536444",
+                    "name": "Gianis - Ice Cream, Shakes & Sundaes",
+                    "cloudinaryImageId": "2365e2117e199c2b9a2cfa643c31b05c",
+                    "locality": "Madhopur",
+                    "areaName": "Sigra",
+                    "costForTwo": "₹200 for two",
+                    "cuisines": [
+                        "Bakery",
+                        "Ice Cream",
+                        "Beverages"
+                    ],
+                    "avgRating": 4.6,
+                    "veg": true,
+                    "parentId": "427371",
+                    "avgRatingString": "4.6",
+                    "totalRatingsString": "100+",
+                    "sla": {
+                        "deliveryTime": 21,
+                        "lastMileTravel": 2.1,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "21 mins",
+                        "lastMileTravelString": "2.1 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "description": "pureveg",
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png"
+                                        }
+                                    }
+                                ]
+                            },
+                            "textExtendedBadges": {},
+                            "textBased": {}
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=536444&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "144929",
+                    "name": "Baskin Robbins - Ice Cream Desserts",
+                    "cloudinaryImageId": "85ccae4e3576f9330af102c46ca85395",
+                    "locality": "Gulab Bagh",
+                    "areaName": "Sigra",
+                    "costForTwo": "₹300 for two",
+                    "cuisines": [
+                        "Ice Cream"
+                    ],
+                    "avgRating": 4.4,
+                    "veg": true,
+                    "parentId": "5588",
+                    "avgRatingString": "4.4",
+                    "totalRatingsString": "500+",
+                    "sla": {
+                        "deliveryTime": 23,
+                        "lastMileTravel": 2.3,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "23 mins",
+                        "lastMileTravelString": "2.3 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 22:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textExtendedBadges": {},
+                            "textBased": {},
+                            "imageBased": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "30% OFF",
+                        "subHeader": "UPTO ₹75"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=144929&source=collection&query=Cakes",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "90062",
+                    "name": "The Cake Cottage",
+                    "cloudinaryImageId": "ft2qfk1ocm8tzgh6udud",
+                    "locality": "Manduadih Flyover",
+                    "areaName": "Mahmoorganj",
+                    "costForTwo": "₹300 for two",
+                    "cuisines": [
+                        "Bakery"
+                    ],
+                    "avgRating": 4.3,
+                    "veg": true,
+                    "parentId": "206244",
+                    "avgRatingString": "4.3",
+                    "totalRatingsString": "5K+",
+                    "sla": {
+                        "deliveryTime": 22,
+                        "lastMileTravel": 2.4,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "22 mins",
+                        "lastMileTravelString": "2.4 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-27 21:50:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                            "description": "pureveg"
+                                        }
+                                    }
+                                ]
+                            },
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "40% OFF",
+                        "subHeader": "UPTO ₹80"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=90062&source=collection&query=Cakes",
                     "text": "RESTAURANT_MENU",
                     "type": "DEEPLINK"
                 },

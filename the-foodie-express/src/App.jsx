@@ -4,12 +4,14 @@ import Home from "./Components/Home"
 import About from "./Components/About"
 import { useState } from "react"
 import Pizza from "./Components/Pizza"
+import Burger from "./Components/Burger"
 import {
   createBrowserRouter,
   Outlet,
   RouterProvider,
 
 } from "react-router-dom";
+import Cake from "./Components/Cakes"
 
 function App() {
 
@@ -41,6 +43,14 @@ const appRouter = createBrowserRouter([
       {
         path: '/pizza',
         element: <Pizza />
+      },
+      {
+        path: '/burger',
+        element: <Burger />
+      },
+      {
+        path: "/cake",
+        element: <Cake />
       }
 
     ]

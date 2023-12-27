@@ -1,4 +1,9 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import Shimmer from './Shimmer'
+import { imageAPI } from '../utils/Constants'
+import star from "../assets/star.png"
+
 import { mockBurgerData } from '../utils/mockData'
 const BurgerCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     return (
@@ -25,11 +30,11 @@ const Burger = () => {
         setData(mockBurgerData)
     }, [])
     return data.length === 0 ? <Shimmer /> : (
-        <div className='mt-10 flex flex-wrap flex-col  justify-center w-[75%] ml-[50%] -translate-x-[50%]'>
-            <h1 className='text-5xl font-bold tracking-wide font-sans text-slate-700 '>Pizza</h1>
-            <p className='text-xl text-slate-500 font-semibold tracking-wide mt-2'>Cheesilicious pizzas to make every day extraordinary.</p>
-            <p className='text-2xl  font-semibold tracking-wide mt-2 text-slate-700'>Restaurants to explore</p>
-
+        <div className='mt-10 flex flex-wrap flex-col  justify-start w-[85%] ml-[55%] -translate-x-[50%]'>
+            <h1 className='text-5xl font-bold tracking-wide font-sans text-slate-700 '>Burger</h1>
+            <p className='text-xl text-slate-500 font-semibold tracking-wide mt-2'>Satisfy your cravings with these fresh and flavoursome burgers.</p>
+            <div className='bg-slate-50 w-32 px-2 flex items-center gap-1 cursor-pointer hover:bg-slate-200 hover:border-slate-600 transition-all justify-center py-2 mt-5 rounded-full text-base  border shadow-md shadow-slate-300 ring-1 ring-slate-200 '>Top Rated <img src={star} className='w-5 h-5' alt="" /></div>
+            <p className='text-2xl  font-semibold tracking-wide mt-6 text-slate-700'>Restaurants to explore</p>
             <div className='flex flex-wrap gap-5  mt-5'>
                 {
                     // <PizzaCard {...slicedData[0]?.card?.card?.info} />

@@ -3,8 +3,8 @@ import { imageAPI } from '../utils/Constants'
 import star from "../assets/star.png"
 import Shimmer from './Shimmer'
 import { pizzaAPI } from '../utils/Constants'
-import { mockPizzaData } from '../utils/mockData'
-const PizzaCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
+import { mockCakeData } from '../utils/mockData'
+const CakeCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     return (
         <div>
             <div className='w-[250px] aspect-square  flex flex-col hover:scale-[1.02] transition-all'>
@@ -22,24 +22,24 @@ const PizzaCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId
         </div>
     )
 }
-const Pizza = () => {
+const Cake = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        setData(mockPizzaData)
+        setData(mockCakeData)
     }, [])
 
     return data.length === 0 ? <Shimmer /> : (
         <div className='mt-10 flex flex-wrap flex-col  justify-center w-[85%] ml-[55%] -translate-x-[50%]'>
-            <h1 className='text-5xl font-bold tracking-wide font-sans text-slate-700 '>Pizza</h1>
-            <p className='text-xl text-slate-500 font-semibold tracking-wide mt-2'>Cheesilicious pizzas to make every day extraordinary.</p>
+            <h1 className='text-5xl font-bold tracking-wide font-sans text-slate-700 '>Cakes</h1>
+            <p className='text-xl text-slate-500 font-semibold tracking-wide mt-2'>Feast on amazing cakes to satisfy your sweet tooth.</p>
             <p className='text-2xl  font-semibold tracking-wide mt-6 text-slate-700'>Restaurants to explore</p>
 
             <div className='flex flex-wrap gap-5  mt-5'>
                 {
                     // <PizzaCard {...slicedData[0]?.card?.card?.info} />
                     data?.map((items) => {
-                        return <PizzaCard {...items?.card?.card?.info} />
+                        return <CakeCard {...items?.card?.card?.info} />
                     })
                 }
             </div>
@@ -47,4 +47,4 @@ const Pizza = () => {
     )
 }
 
-export default Pizza
+export default Cake;
