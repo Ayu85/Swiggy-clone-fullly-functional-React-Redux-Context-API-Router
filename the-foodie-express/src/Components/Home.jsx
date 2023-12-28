@@ -23,8 +23,8 @@ const Home = ({ dark }) => {
             const rawData = await fetch(API)
             const data = await rawData.json();
             console.log(data);
-            setRestaurantData(data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            setFilteredData(data?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setRestaurantData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setFilteredData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
         getDataAPI();
     }, [])
@@ -57,7 +57,8 @@ const Home = ({ dark }) => {
                 <Link to={"/pizza"}> <img src={pizza} width={130} alt="pizza" /></Link>
                 <Link to={"/burger"}> <img src={burger} width={130} alt="pizza" /></Link>
                 <Link to={"/cake"} > <img src={cake} width={130} alt="cake" /></Link>
-                <img src={Sandwich} width={130} alt="pizza" />
+                <Link to={"/sandwich"} > <img src={Sandwich} width={130} alt="cake" /></Link>
+
                 <img src={dosa} width={130} alt="pizza" />
                 <img src={biryani} width={130} alt="pizza" />
             </div>
@@ -66,7 +67,7 @@ const Home = ({ dark }) => {
                 {/* <Card {...restaurantData[2]?.info} /> */}
                 {
                     filteredData?.map((restaurants) => {
-                        return <Card {...restaurants.info} />
+                        return <Link to={"restaurant/" + restaurants?.info?.id}><Card {...restaurants.info} /></Link>
                     })
                 }
             </div></>

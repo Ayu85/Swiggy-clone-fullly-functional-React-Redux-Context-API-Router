@@ -12,6 +12,8 @@ import {
 
 } from "react-router-dom";
 import Cake from "./Components/Cakes"
+import Sandwich from "./Components/Sandwhich"
+import DetailedRestMenu from "./Components/DetailedRestMenu"
 
 function App() {
 
@@ -51,6 +53,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/cake",
         element: <Cake />
+      }, {
+        path: '/sandwich',
+        element: <Sandwich />
+      }, {
+        path: '/restaurant/:id',
+        element: <DetailedRestMenu />
       }
 
     ]
