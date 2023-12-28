@@ -2464,3 +2464,637 @@ export const mockCakeData = [
         }
     }
 ]
+export const mockSandwichData = [
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "374738",
+                    "name": "Mini Canteen",
+                    "cloudinaryImageId": "ypsh3pur5mwnn3cmokzj",
+                    "locality": "Kamala Nagar Colony",
+                    "areaName": "Sigra",
+                    "costForTwo": "₹200 for two",
+                    "cuisines": [
+                        "Indian",
+                        "Chinese",
+                        "Biryani",
+                        "Desserts"
+                    ],
+                    "avgRating": 4.2,
+                    "parentId": "136439",
+                    "avgRatingString": "4.2",
+                    "totalRatingsString": "100+",
+                    "sla": {
+                        "deliveryTime": 40,
+                        "lastMileTravel": 2.3,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "40 mins",
+                        "lastMileTravelString": "2.3 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 14:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textExtendedBadges": {},
+                            "textBased": {},
+                            "imageBased": {}
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=374738&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "80881",
+                    "name": "Tanish Dining and Cafe",
+                    "cloudinaryImageId": "zqdcuinhaxj2bsodwe4z",
+                    "locality": "Ravidas gate",
+                    "areaName": "Lanka",
+                    "costForTwo": "₹500 for two",
+                    "cuisines": [
+                        "North Indian",
+                        "Beverages",
+                        "Snacks"
+                    ],
+                    "avgRating": 4.1,
+                    "parentId": "200993",
+                    "avgRatingString": "4.1",
+                    "totalRatingsString": "1K+",
+                    "promoted": true,
+                    "adTrackingId": "cid=9718436~p=2~eid=0000018c-ae72-ae26-4fc7-dee10091023b~srvts=1703733800486~83667",
+                    "sla": {
+                        "deliveryTime": 52,
+                        "lastMileTravel": 7.6,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "52 mins",
+                        "lastMileTravelString": "7.6 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "₹125 OFF",
+                        "subHeader": "ABOVE ₹199",
+                        "discountTag": "FLAT DEAL"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=80881&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "714550",
+                    "name": "Luscious Pizza",
+                    "cloudinaryImageId": "67f50f5573f774e40a5fcd41c405dd6a",
+                    "locality": "Ind Estate",
+                    "areaName": "Sigra",
+                    "costForTwo": "₹200 for two",
+                    "cuisines": [
+                        "Pizzas"
+                    ],
+                    "avgRating": 4.3,
+                    "veg": true,
+                    "parentId": "278176",
+                    "avgRatingString": "4.3",
+                    "totalRatingsString": "4",
+                    "sla": {
+                        "deliveryTime": 55,
+                        "lastMileTravel": 2,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "55 mins",
+                        "lastMileTravelString": "2.0 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 12:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "₹125 OFF",
+                        "subHeader": "ABOVE ₹599",
+                        "discountTag": "FLAT DEAL"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=714550&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "379882",
+                    "name": "Behind Yellow Doors Diner",
+                    "cloudinaryImageId": "m03zn5oghqiumvg6h2ub",
+                    "locality": "Chittupur",
+                    "areaName": "Sigra",
+                    "costForTwo": "₹500 for two",
+                    "cuisines": [
+                        "Indian",
+                        "Chinese",
+                        "Snacks"
+                    ],
+                    "avgRating": 4.1,
+                    "parentId": "43054",
+                    "avgRatingString": "4.1",
+                    "totalRatingsString": "50+",
+                    "sla": {
+                        "deliveryTime": 39,
+                        "lastMileTravel": 1.7,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "39 mins",
+                        "lastMileTravelString": "1.7 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textExtendedBadges": {},
+                            "textBased": {},
+                            "imageBased": {}
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=379882&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "789632",
+                    "name": "De' Once More Restaurant",
+                    "cloudinaryImageId": "222d7adeede9d84eeeb5bcb830560bb7",
+                    "locality": "Ravidas Gate",
+                    "areaName": "Lanka",
+                    "costForTwo": "₹300 for two",
+                    "cuisines": [
+                        "Indian"
+                    ],
+                    "avgRating": 5,
+                    "parentId": "469239",
+                    "avgRatingString": "5.0",
+                    "totalRatingsString": "9",
+                    "promoted": true,
+                    "adTrackingId": "cid=10087039~p=3~eid=0000018c-ae72-ae26-4fc7-dee200910372~srvts=1703733800486~83667",
+                    "sla": {
+                        "deliveryTime": 55,
+                        "lastMileTravel": 7.8,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "55 mins",
+                        "lastMileTravelString": "7.8 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 23:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "isNewlyOnboarded": true,
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=789632&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "293672",
+                    "name": "Taste of Punjab",
+                    "cloudinaryImageId": "avwocdsdgphrbdz8jcwi",
+                    "areaName": "Mahmoorganj",
+                    "costForTwo": "₹200 for two",
+                    "cuisines": [
+                        "North Indian",
+                        "Chinese",
+                        "Punjabi",
+                        "Desserts"
+                    ],
+                    "avgRating": 4.1,
+                    "parentId": "6361",
+                    "avgRatingString": "4.1",
+                    "totalRatingsString": "1K+",
+                    "sla": {
+                        "deliveryTime": 52,
+                        "lastMileTravel": 3,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "52 mins",
+                        "lastMileTravelString": "3.0 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 21:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=293672&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "605503",
+                    "name": "Lalit Restaurant",
+                    "cloudinaryImageId": "fdsbjdmkh8j136rnjw2v",
+                    "locality": "Chhittupura",
+                    "areaName": "Shastri Nagar",
+                    "costForTwo": "₹250 for two",
+                    "cuisines": [
+                        "North Indian",
+                        "Chinese",
+                        "Italian-American",
+                        "Fast Food",
+                        "Beverages"
+                    ],
+                    "parentId": "360628",
+                    "avgRatingString": "--",
+                    "sla": {
+                        "deliveryTime": 36,
+                        "lastMileTravel": 2.3,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "36 mins",
+                        "lastMileTravelString": "2.3 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 22:00:00",
+                        "opened": true
+                    },
+                    "badges": {},
+                    "isOpen": true,
+                    "aggregatedDiscountInfoV2": {},
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "textBased": {},
+                            "imageBased": {},
+                            "textExtendedBadges": {}
+                        }
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=605503&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    },
+    {
+        "card": {
+            "card": {
+                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+                "info": {
+                    "id": "354156",
+                    "name": "Chaurasia Idli Dosa Corner",
+                    "cloudinaryImageId": "hs4481jcr4hcu6jfpuup",
+                    "locality": "Sundarpur",
+                    "areaName": "Sunderpur",
+                    "costForTwo": "₹50 for two",
+                    "cuisines": [
+                        "Street Food",
+                        "Indian"
+                    ],
+                    "avgRating": 4,
+                    "veg": true,
+                    "parentId": "58777",
+                    "avgRatingString": "4.0",
+                    "totalRatingsString": "100+",
+                    "promoted": true,
+                    "adTrackingId": "cid=9814500~p=4~eid=0000018c-ae72-ae26-4fc7-dee30091041f~srvts=1703733800486~83667",
+                    "sla": {
+                        "deliveryTime": 56,
+                        "lastMileTravel": 5.8,
+                        "serviceability": "SERVICEABLE",
+                        "slaString": "56 mins",
+                        "lastMileTravelString": "5.8 km",
+                        "iconType": "ICON_TYPE_EMPTY"
+                    },
+                    "availability": {
+                        "nextCloseTime": "2023-12-28 22:00:00",
+                        "opened": true
+                    },
+                    "badges": {
+                        "imageBadges": [
+                            {
+                                "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                "description": "pureveg"
+                            }
+                        ]
+                    },
+                    "isOpen": true,
+                    "type": "F",
+                    "badgesV2": {
+                        "entityBadges": {
+                            "imageBased": {
+                                "badgeObject": [
+                                    {
+                                        "attributes": {
+                                            "imageId": "v1695133679/badges/Pure_Veg111.png",
+                                            "description": "pureveg"
+                                        }
+                                    }
+                                ]
+                            },
+                            "textExtendedBadges": {},
+                            "textBased": {}
+                        }
+                    },
+                    "aggregatedDiscountInfoV3": {
+                        "header": "10% OFF",
+                        "subHeader": "UPTO ₹40"
+                    },
+                    "orderabilityCommunication": {
+                        "title": {},
+                        "subTitle": {},
+                        "message": {},
+                        "customIcon": {}
+                    },
+                    "differentiatedUi": {
+                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                        "differentiatedUiMediaDetails": {
+                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                            "lottie": {},
+                            "video": {}
+                        }
+                    },
+                    "reviewsSummary": {},
+                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+                    "restaurantOfferPresentationInfo": {}
+                },
+                "analytics": {},
+                "cta": {
+                    "link": "swiggy://menu?restaurant_id=354156&source=collection&query=Sandwich",
+                    "text": "RESTAURANT_MENU",
+                    "type": "DEEPLINK"
+                },
+                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+            },
+            "relevance": {
+                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
+                "sectionId": "MENU_RETURN_FOOD"
+            }
+        }
+    }
+]
