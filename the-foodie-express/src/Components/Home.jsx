@@ -41,33 +41,33 @@ const Home = ({ dark }) => {
     return filteredData?.length === 0 ? <Shimmer /> : (
         <>
             <><div className=' justify-center mt-10  mx-16 hidden md:flex '>
-                <input type="text" className='border-[#de9c37] border w-[550px] h-10 rounded-l-xl pl-2 text-[#2d2e32] focus:outline-none transition-all focus-within:bg-[#de9b3716]'
+                <input type="text" placeholder='Search taste near you' className='border-[#de9c37] border w-[550px] h-10  pl-2 text-[#2d2e32] focus:outline-none transition-all focus-within:bg-[#de9b3716]'
                     onChange={(e) => {
                         setSearchText(e.target.value)
                         setFilteredData(getFilteredData(searchText));
 
                     }} style={dark === true ? { background: "#c6bacd", border: " 1px solid black" } : { background: "white" }} />
-                <button className='bg-[#de9c37] text-white w-24 h-10 rounded-r-xl' onClick={() => {
+                <button className='bg-[#de9c37] text-white w-24 h-10 ' onClick={() => {
                     const d = getFilteredData(searchText);
                     setFilteredData(d);
                     console.log(d);
                 }} >Search</button>
             </div></>
-            <div className='flex flex-wrap justify-center gap-5 mt-10'>
+            <div className='flex flex-wrap justify-center gap-5 mt-10 '>
                 <Link to={"/pizza"}> <img src={pizza} width={130} alt="pizza" /></Link>
                 <Link to={"/burger"}> <img src={burger} width={130} alt="pizza" /></Link>
                 <Link to={"/cake"} > <img src={cake} width={130} alt="cake" /></Link>
                 <Link to={"/sandwich"} > <img src={Sandwich} width={130} alt="cake" /></Link>
-
                 <img src={dosa} width={130} alt="pizza" />
                 <img src={biryani} width={130} alt="pizza" />
             </div>
+            <div className='border-b border border-slate-200 w-[75%] ml-[50%] -translate-x-[50%] mt-5'></div>
             <h2 className='font-bold  text-2xl w-[80%] ml-[50%] -translate-x-[46%] mt-16 name'>Restaurants with online food delivery in Varanasi</h2>
-            <div className='flex justify-center mt-5 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
+            <div className='flex justify-center mt-6 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
                 {/* <Card {...restaurantData[2]?.info} /> */}
                 {
                     filteredData?.map((restaurants) => {
-                        return <Link to={"restaurant/" + restaurants?.info?.id}><Card {...restaurants.info} /></Link>
+                        return <Link to={"/restaurant/" + restaurants?.info?.id}><Card {...restaurants?.info} /></Link>
                     })
                 }
             </div></>
