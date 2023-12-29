@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Shimmer from './Shimmer'
 import { imageAPI } from '../utils/Constants'
 import star from "../assets/star.png"
-
+import { Link } from 'react-router-dom'
 import { mockBurgerData } from '../utils/mockData'
 const BurgerCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     return (
@@ -52,16 +52,18 @@ const Burger = () => {
                     setFilteredData(data)
                 }
 
-            }} style={(isTopRated==false) ? { border: "1px solid gray", backgroundColor: "#334155", color: "white " } : { border: "1px solid green" }} className='bg-slate-50 w-32 px-2 flex items-center gap-1 cursor-pointer hover:bg-slate-200 hover:border-slate-600 transition-all justify-center py-2 mt-5 rounded-full text-base  border  '>
+            }} style={(isTopRated == false) ? { border: "1px solid gray", backgroundColor: "#334155", color: "white " } : { border: "1px solid green" }} className='bg-slate-50 w-32 px-2 flex items-center gap-1 cursor-pointer hover:bg-slate-200 hover:border-slate-600 transition-all justify-center py-2 mt-5 rounded-full text-base  border  '>
                 Top Rated <img src={star} className='w-5 h-5' alt="" /></div>
             <p className='text-2xl  font-semibold tracking-wide mt-6 text-slate-700'>Restaurants to explore</p>
             <div className='flex flex-wrap gap-5  mt-5'>
+
+                {/* // <PizzaCard {...slicedData[0]?.card?.card?.info} /> */}
                 {
-                    // <PizzaCard {...slicedData[0]?.card?.card?.info} />
-                    filteredData?.map((items) => {
-                        return <BurgerCard {...items?.card?.card?.info} />
+                    data?.map((restaurants) => {
+                        return <Link to={"/restaurant/" + restaurants?.card?.card?.info?.id}><BurgerCard {...restaurants?.card?.card?.info} /></Link>
                     })
                 }
+
             </div>
         </div >
     )

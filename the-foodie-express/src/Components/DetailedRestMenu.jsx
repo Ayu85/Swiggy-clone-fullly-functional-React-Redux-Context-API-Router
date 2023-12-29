@@ -6,6 +6,8 @@ import { RiPinDistanceFill } from "react-icons/ri";
 import star from "../assets/star2.png"
 import DetailedShimmer from './DetailedShimmer';
 import { LiaRupeeSignSolid } from "react-icons/lia";
+import { CgTimelapse } from "react-icons/cg";
+import { TbCoinRupee } from "react-icons/tb";
 const AboutRestaurant = () => {
     const { id } = useParams();
     const [menuData, setMenuData] = useState(null);
@@ -14,14 +16,14 @@ const AboutRestaurant = () => {
             const rawData = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3176452&lng=82.9739144&restaurantId=${id}&catalog_qa=undefined&query=Sandwich&submitAction=ENTER`)
             const json = await rawData.json();
             setMenuData(json?.data?.cards[0]?.card?.card?.info)
-            console.log(json);
+            // console.log(json);
         }
 
         getMenu()
 
     }, [])
     return menuData == null ? <DetailedShimmer /> : (
-        <div className='flex flex-wrap px-10 py-3 items-center justify-between bg-[#282C3F] text-white w-[100%] mt-10'>
+        <div className='flex flex-wrap px-10 py-5 gap-10 rounded-lg items-center justify-between bg-[#282C3F] text-white w-[100%] mt-10'>
             <div className='flex justify-center gap-2 flex-col items-center mt-10  '>
                 <img src={imageAPI + menuData?.cloudinaryImageId} alt="" width={200} className=' rounded-lg aspect-square' />
                 <div className='flex flex-col justify-center items-center border-slate-300 border px-2 gap-1 mt-3'>
@@ -36,7 +38,9 @@ const AboutRestaurant = () => {
                 <div>{menuData?.cuisines?.join(' , ')}</div>
                 <div className='flex items-center gap-1'>{menuData?.areaName} , {menuData?.sla?.lastMileTravelString}<RiPinDistanceFill /></div>
                 <div className='mt-5 flex items-center gap-2'><FaCircleInfo />" {menuData?.feeDetails?.message}  "</div>
-
+                <div className='flex mt-5 gap-2 border-slate-500 border w-64 justify-center py-1'>
+                    <div className='flex gap-1 items-center'><CgTimelapse className='text-2xl' />{menuData?.sla?.slaString}</div>
+                    <div className='flex gap-1 items-center'><TbCoinRupee className='text-2xl'/>{menuData?.costForTwoMessage}</div></div>
             </div>
 
         </div>
@@ -46,13 +50,16 @@ const MenuCard = ({ name, description, imageId, defaultPrice }) => {
     return (
 
         <>
-            <div className='flex flex-wrap gap-4 justify-between w-[100%] max-w-[900px] items-center border-b border-slate-200 py-10'>
+            <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
                     <div className='text-xl font-semibold text-slate-600 mt-2'>{name}</div>
                     <div className='flex items-center'><LiaRupeeSignSolid />{defaultPrice?.toString()?.substring(0, 3)}</div>
-                    <div className='mt-4 text-slate-500 font-extralightlight'>{description?.substring(0, 50)}</div>
+                    <div className='mt-4 text-slate-500 font-extralightlight'>{description?.substring(0, 50) || "Taste"}</div>
                 </div>
-                <div><img src={imageAPI + imageId} alt="" width={100} className='aspect-square' /></div>
+                <div>
+                    <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
+                    <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold'>ADD</button>
+                    </div>
             </div></>
     )
 }
@@ -61,50 +68,52 @@ const AllMenu = () => {
     const [menu2, setMenu2] = useState([])
     const [menu3, setMenu3] = useState([])
     const [menu4, setMenu4] = useState([])
+        const { id } = useParams();
+
     useEffect(() => {
         const g = async () => {
-            const r = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3176452&lng=82.9739144&restaurantId=435680&catalog_qa=undefined&submitAction=ENTER")
+            const r = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3176452&lng=82.9739144&restaurantId=${id}&catalog_qa=undefined&query=Sandwich&submitAction=ENTER`)
             const s = await r.json();
             setMenu(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
-            setMenu2(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card?.itemCards)
-            setMenu3(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[6].card?.card?.itemCards)
+            setMenu2(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards)
+            setMenu3(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[8].card?.card?.itemCards)
             setMenu4(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[7].card?.card?.itemCards)
-            
-            console.log("new", s);
+
+             console.log("new", s);
         }
         g();
     }, [])
-    console.log(menu);
+    // console.log(menu);
     return (
-        <div className='flex flex-col '>
-            <div className='text-slate-700 font-bold text-xl font-sans'>⚫{menu[0]?.card?.info?.category}</div>
+        <div className='flex flex-col w-[90%] '>
+            <div className='text-slate-700 font-bold text-xl font-sans'>⚫{menu[0]?.card?.info?.category || "Awesome taste"} ({menu.length})</div>
             <div className='flex flex-wrap flex-col gap-5  '>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
-                    menu.map((items) => {
+                    menu?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
                     })
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu2[0]?.card?.info?.category}({menu2.length})</div>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu2[0]?.card?.info?.category || "Awesome taste"}({menu2.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
-                    menu2.map((items) => {
+                    menu2?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
                     })
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu3[0]?.card?.info?.category}({menu3.length})</div>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu3[0]?.card?.info?.category || "Awesome taste"}({menu3.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
-                    menu3.map((items) => {
+                    menu3?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
                     })
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu4[0]?.card?.info?.category}({menu4.length})</div>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu4[0]?.card?.info?.category || "Awesome taste"}({menu4.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
-                    menu4.map((items) => {
+                    menu4?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
                     })
                 }

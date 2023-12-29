@@ -4,6 +4,7 @@ import star from "../assets/star.png"
 import Shimmer from './Shimmer'
 import { pizzaAPI } from '../utils/Constants'
 import { mockCakeData } from '../utils/mockData'
+import { Link } from 'react-router-dom'
 const CakeCard = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     return (
         <div>
@@ -36,12 +37,12 @@ const Cake = () => {
             <p className='text-2xl  font-semibold tracking-wide mt-6 text-slate-700'>Restaurants to explore</p>
 
             <div className='flex flex-wrap gap-5  mt-5'>
-                {
-                    // <PizzaCard {...slicedData[0]?.card?.card?.info} />
-                    data?.map((items) => {
-                        return <CakeCard {...items?.card?.card?.info} />
+            {
+                    data?.map((restaurants) => {
+                        return <Link to={"/restaurant/" + restaurants?.card?.card?.info?.id}><CakeCard {...restaurants?.card?.card?.info} /></Link>
                     })
                 }
+                
             </div>
         </div>
     )
