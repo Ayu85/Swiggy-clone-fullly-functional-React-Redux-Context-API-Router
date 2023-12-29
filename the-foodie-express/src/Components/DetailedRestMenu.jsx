@@ -46,11 +46,11 @@ const MenuCard = ({ name, description, imageId, defaultPrice }) => {
     return (
 
         <>
-            <div className='flex flex-wrap gap-4 justify-between w-[100%] items-center border-b border-slate-200 py-10'>
+            <div className='flex flex-wrap gap-4 justify-between w-[100%] max-w-[900px] items-center border-b border-slate-200 py-10'>
                 <div>
                     <div className='text-xl font-semibold text-slate-600 mt-2'>{name}</div>
                     <div className='flex items-center'><LiaRupeeSignSolid />{defaultPrice?.toString()?.substring(0, 3)}</div>
-                    <div className='mt-4 text-slate-500 font-extralightlight'>{description?.substring(0,50)}</div>
+                    <div className='mt-4 text-slate-500 font-extralightlight'>{description?.substring(0, 50)}</div>
                 </div>
                 <div><img src={imageAPI + imageId} alt="" width={100} className='aspect-square' /></div>
             </div></>
@@ -58,11 +58,18 @@ const MenuCard = ({ name, description, imageId, defaultPrice }) => {
 }
 const AllMenu = () => {
     const [menu, setMenu] = useState([])
+    const [menu2, setMenu2] = useState([])
+    const [menu3, setMenu3] = useState([])
+    const [menu4, setMenu4] = useState([])
     useEffect(() => {
         const g = async () => {
             const r = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3176452&lng=82.9739144&restaurantId=435680&catalog_qa=undefined&submitAction=ENTER")
             const s = await r.json();
-            setMenu(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards)
+            setMenu(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
+            setMenu2(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[5]?.card?.card?.itemCards)
+            setMenu3(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[6].card?.card?.itemCards)
+            setMenu4(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[7].card?.card?.itemCards)
+            
             console.log("new", s);
         }
         g();
@@ -70,10 +77,34 @@ const AllMenu = () => {
     console.log(menu);
     return (
         <div className='flex flex-col '>
-            <div className='text-slate-700 font-bold text-xl font-sans'>Recommended(20)</div>
+            <div className='text-slate-700 font-bold text-xl font-sans'>⚫{menu[0]?.card?.info?.category}</div>
             <div className='flex flex-wrap flex-col gap-5  '>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu.map((items) => {
+                        return <MenuCard {...items?.card?.info} />
+                    })
+                }
+            </div>
+            <div className='flex flex-wrap flex-col gap-5 mt-9 '>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu2[0]?.card?.info?.category}({menu2.length})</div>
+                {/* <MenuCard  {...menu[0]?.card?.info} /> */
+                    menu2.map((items) => {
+                        return <MenuCard {...items?.card?.info} />
+                    })
+                }
+            </div>
+            <div className='flex flex-wrap flex-col gap-5 mt-9 '>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu3[0]?.card?.info?.category}({menu3.length})</div>
+                {/* <MenuCard  {...menu[0]?.card?.info} /> */
+                    menu3.map((items) => {
+                        return <MenuCard {...items?.card?.info} />
+                    })
+                }
+            </div>
+            <div className='flex flex-wrap flex-col gap-5 mt-9 '>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu4[0]?.card?.info?.category}({menu4.length})</div>
+                {/* <MenuCard  {...menu[0]?.card?.info} /> */
+                    menu4.map((items) => {
                         return <MenuCard {...items?.card?.info} />
                     })
                 }
