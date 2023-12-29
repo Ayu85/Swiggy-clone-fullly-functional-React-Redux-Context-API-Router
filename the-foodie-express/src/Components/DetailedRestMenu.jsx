@@ -40,7 +40,7 @@ const AboutRestaurant = () => {
                 <div className='mt-5 flex items-center gap-2'><FaCircleInfo />" {menuData?.feeDetails?.message}  "</div>
                 <div className='flex mt-5 gap-2 border-slate-500 border w-64 justify-center py-1'>
                     <div className='flex gap-1 items-center'><CgTimelapse className='text-2xl' />{menuData?.sla?.slaString}</div>
-                    <div className='flex gap-1 items-center'><TbCoinRupee className='text-2xl'/>{menuData?.costForTwoMessage}</div></div>
+                    <div className='flex gap-1 items-center'><TbCoinRupee className='text-2xl' />{menuData?.costForTwoMessage}</div></div>
             </div>
 
         </div>
@@ -59,7 +59,7 @@ const MenuCard = ({ name, description, imageId, defaultPrice }) => {
                 <div>
                     <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
                     <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold'>ADD</button>
-                    </div>
+                </div>
             </div></>
     )
 }
@@ -68,7 +68,7 @@ const AllMenu = () => {
     const [menu2, setMenu2] = useState([])
     const [menu3, setMenu3] = useState([])
     const [menu4, setMenu4] = useState([])
-        const { id } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         const g = async () => {
@@ -76,17 +76,17 @@ const AllMenu = () => {
             const s = await r.json();
             setMenu(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
             setMenu2(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards)
-            setMenu3(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[8].card?.card?.itemCards)
+            setMenu3(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card?.card?.itemCards)
             setMenu4(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[7].card?.card?.itemCards)
 
-             console.log("new", s);
+            console.log("new", s);
         }
         g();
     }, [])
     // console.log(menu);
     return (
         <div className='flex flex-col w-[90%] '>
-            <div className='text-slate-700 font-bold text-xl font-sans'>⚫{menu[0]?.card?.info?.category || "Awesome taste"} ({menu.length})</div>
+            <div className='text-slate-700 font-bold text-xl font-sans'>⚫{menu[0]?.card?.info?.category || menu[1]?.card?.info?.category} ({menu.length})</div>
             <div className='flex flex-wrap flex-col gap-5  '>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu?.map((items) => {
@@ -95,7 +95,7 @@ const AllMenu = () => {
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu2[0]?.card?.info?.category || "Awesome taste"}({menu2.length})</div>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu2[0]?.card?.info?.category || menu2[1]?.card?.info?.category}({menu2.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu2?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
@@ -103,7 +103,7 @@ const AllMenu = () => {
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu3[0]?.card?.info?.category || "Awesome taste"}({menu3.length})</div>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu3[1]?.card?.info?.category || menu3[1]?.card?.info?.category}({menu3.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu3?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
@@ -111,7 +111,7 @@ const AllMenu = () => {
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu4[0]?.card?.info?.category || "Awesome taste"}({menu4.length})</div>
+                <div className='text-xl font-bold text-black font-sans'>⚫{menu4[0]?.card?.info?.category || menu4[1]?.card?.info?.category}({menu4.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu4?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
