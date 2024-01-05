@@ -10,21 +10,24 @@ import UserContext from '../utils/userContext';
 
 const Header = () => {
     const { user } = useContext(UserContext)
+    const [isLogged, setLogged] = useState(false)
     return (
 
         <div className='flex justify-between items-center px-4 py-6 shadow-lg gap-2
          border-b border-[#2d2e320e] '    >
             <div className='text-2xl font-bold head tracking-wider text-[#de9c37]'>The Foodie Express</div>
             <div >
-                <ul className='flex gap-8 text-lg font-semibold tracking-wide text-[#5a626b]' >
+                <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b]' >
                     <NavLink to={'home'}><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoHomeOutline />Home</li></NavLink>
                     <Link>  <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><CiPercent />Offers</li></Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoIosHelpCircleOutline />Help</li>
                     </Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart</li>
                     </Link>
-                    <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><CiLogin />Login :
-                    <span>{user.name}</span></li></Link>
+                    <Link className='flex items-center flex-col justify-center w-20'><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
+                        isLogged == true ? setLogged(false) : setLogged(true)
+                    }}><CiLogin />{isLogged == true ? "Logout" : "Login"}
+                    </li> <span>{isLogged == true ? user.name : ""}</span></Link>
                 </ul>
             </div>
 
