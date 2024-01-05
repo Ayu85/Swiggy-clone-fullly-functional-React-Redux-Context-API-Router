@@ -12,18 +12,20 @@ import chinese from "../assets/Chinese.webp"
 import dosa from "../assets/Dosa.webp"
 import biryani from "../assets/Biryani_2.webp"
 import Sandwich from "../assets/Sandwich.avif"
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 const Home = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("")
-   
+    
     useEffect(() => {
         const getDataAPI = async () => {
             const rawData = await fetch(API)
             const data = await rawData.json();
             console.log(data);
-            setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            setFilteredData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setRestaurantData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setFilteredData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
         getDataAPI();
     }, [])
