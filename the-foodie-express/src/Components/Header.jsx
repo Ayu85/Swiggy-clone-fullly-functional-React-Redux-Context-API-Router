@@ -7,7 +7,10 @@ import { IoIosHelpCircleOutline } from "react-icons/io";
 import { CiPercent } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
 import UserContext from '../utils/userContext';
+import { CiUser } from "react-icons/ci";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 const Header = () => {
     const { user } = useContext(UserContext)
     const [isLogged, setLogged] = useState(false)
@@ -17,17 +20,51 @@ const Header = () => {
          border-b border-[#2d2e320e] '    >
             <div className='text-2xl font-bold head tracking-wider text-[#de9c37]'>The Foodie Express</div>
             <div >
-                <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b]' >
+                <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b] ' >
                     <NavLink to={'home'}><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoHomeOutline />Home</li></NavLink>
                     <Link>  <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><CiPercent />Offers</li></Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoIosHelpCircleOutline />Help</li>
                     </Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart</li>
                     </Link>
-                    <Link className='flex items-center flex-col justify-center w-20'><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
-                        isLogged == true ? setLogged(false) : setLogged(true)
-                    }}><CiLogin />{isLogged == true ? "Logout" : "Login"}
-                    </li> <span>{isLogged == true ? user.name : ""}</span></Link>
+                    <Link className='flex items-center flex-col justify-center '><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
+                        if (isLogged == true) {
+                            setLogged(false)
+                            toast.warn('Logged out!', {
+                                position: "top-center",
+                                autoClose: 1000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+                                
+                            });
+                        } else {
+                            setLogged(true); toast.success(`Loggen in! Welcome ${user.name}`, {
+                                position: "top-center",
+                                autoClose: 1000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+                            });
+                        }
+                    }} ><CiLogin />{isLogged == true ? "Logout" : "Login"}
+                    </li></Link>
+                    <ToastContainer position="top-center"
+                        autoClose={1000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="colored" />
                 </ul>
             </div>
 
