@@ -2,9 +2,10 @@ import Header from "./Components/Header"
 import SearchBar from "./Components/SearchBar"
 import Home from "./Components/Home"
 import About from "./Components/About"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Pizza from "./Components/Pizza"
 import Burger from "./Components/Burger"
+import UserContext from "./utils/userContext"
 import {
   createBrowserRouter,
   Outlet,
@@ -16,13 +17,19 @@ import Sandwich from "./Components/Sandwhich"
 import DetailedRestMenu from "./Components/DetailedRestMenu"
 
 function App() {
-
+   const [user, setUser] = useState({
+     name: "Aayush",
+     mail: "ayush12@gmail.com"
+   })
+  // const { user } = useContext(UserContext)
 
   return (
-    <div >
-      <Header />
+    <UserContext.Provider value={{
+      user: user
+    }}  >
+      <Header user={user} />
       <Outlet />
-    </div>
+    </UserContext.Provider>
   )
 }
 const appRouter = createBrowserRouter([
@@ -57,7 +64,7 @@ const appRouter = createBrowserRouter([
         path: '/sandwich',
         element: <Sandwich />
       },
-       {
+      {
         path: '/restaurant/:id',
         element: <DetailedRestMenu />
       }

@@ -34,7 +34,7 @@ const Burger = () => {
     }, [])
     const filterBurger = () => {
         return data.filter((d) => {
-            return d?.card?.card?.info?.avgRating > 4
+            return d?.card?.card?.info?.avgRating > 4.1
         })
     }
     return data.length === 0 ? <Shimmer /> : (
@@ -59,7 +59,7 @@ const Burger = () => {
 
                 {/* // <PizzaCard {...slicedData[0]?.card?.card?.info} /> */}
                 {
-                    data?.map((restaurants) => {
+                    filteredData?.map((restaurants) => {
                         return <Link to={"/restaurant/" + restaurants?.card?.card?.info?.id}><BurgerCard {...restaurants?.card?.card?.info} /></Link>
                     })
                 }

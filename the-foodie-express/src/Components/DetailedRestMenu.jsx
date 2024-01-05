@@ -46,14 +46,14 @@ const AboutRestaurant = () => {
         </div>
     )
 }
-const MenuCard = ({ name, description, imageId, defaultPrice }) => {
+const MenuCard = ({ name, description, imageId, price }) => {
     return (
 
         <>
             <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
                     <div className='text-xl font-semibold text-slate-600 mt-2'>{name}</div>
-                    <div className='flex items-center'><LiaRupeeSignSolid />{defaultPrice?.toString()?.substring(0, 3)}</div>
+                    <div className='flex items-center'><LiaRupeeSignSolid />{price?.toString()?.substring(0, 3)}</div>
                     <div className='mt-4 text-slate-500 font-extralightlight'>{description?.substring(0, 50) || "Taste"}</div>
                 </div>
                 <div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Card from './Card'
 import { API } from '../utils/Constants'
 import SearchBar from './SearchBar'
@@ -12,19 +12,18 @@ import chinese from "../assets/Chinese.webp"
 import dosa from "../assets/Dosa.webp"
 import biryani from "../assets/Biryani_2.webp"
 import Sandwich from "../assets/Sandwich.avif"
-const Home = ({ dark }) => {
+const Home = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("")
-
-
+   
     useEffect(() => {
         const getDataAPI = async () => {
             const rawData = await fetch(API)
             const data = await rawData.json();
             console.log(data);
-            setRestaurantData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            setFilteredData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setFilteredData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
         getDataAPI();
     }, [])
@@ -34,10 +33,7 @@ const Home = ({ dark }) => {
         })
         return data;
     }
-    // console.log(restaurantData);
-    // console.log("fil", filteredData);
-    // if (filteredData.length == 0)
-    //     return <Error />
+
     return filteredData?.length === 0 ? <Shimmer /> : (
         <>
             <><div className=' justify-center mt-10  mx-16 hidden md:flex '>
@@ -46,7 +42,7 @@ const Home = ({ dark }) => {
                         setSearchText(e.target.value)
                         setFilteredData(getFilteredData(searchText));
 
-                    }} style={dark === true ? { background: "#c6bacd", border: " 1px solid black" } : { background: "white" }} />
+                    }} />
                 <button className='bg-[#de9c37] text-white w-24 h-10 ' onClick={() => {
                     const d = getFilteredData(searchText);
                     setFilteredData(d);
