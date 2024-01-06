@@ -13,16 +13,22 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import ThemeContext from '../utils/themeContext'
 
 const Header = () => {
-    const { user } = useContext(UserContext)
+    const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
+   
+    console.log(theme);
+    const dark = {
+        background: "black",
+       
+    }
+    const light = {
+        background: "white"
+    }
 
 
     return (
-
-
-
         <div className='flex justify-between items-center px-4 py-6 shadow-lg gap-2
-        border-b border-[#2d2e320e] '    >
+        border-b border-[#2d2e320e] '  style={theme.mode === "dark" ? dark : light}   >
             <div className='text-2xl font-bold head tracking-wider text-[#de9c37]'>The Foodie Express</div>
             <div >
                 <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b] ' >
@@ -60,7 +66,19 @@ const Header = () => {
                         }
                     }} ><CiLogin />{isLogged == true ? "Logout" : "Login"}
                     </li></Link>
-                    <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100 hover:cursor-pointer'>Dark Mode <MdOutlineDarkMode /></li>
+                    <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100 hover:cursor-pointer'
+                        onClick={() => {
+                            if (theme.mode === "light") {
+                                setTheme({
+                                    mode: "dark"
+                                })
+                            }
+                            else{
+                                setTheme({
+                                    mode: "light"
+                                })
+                            }
+                        }}>Dark Mode <MdOutlineDarkMode /></li>
                     <ToastContainer position="top-center"
                         autoClose={1000}
                         hideProgressBar={false}

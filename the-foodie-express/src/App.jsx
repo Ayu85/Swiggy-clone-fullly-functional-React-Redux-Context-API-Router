@@ -6,6 +6,7 @@ import { useContext, useState } from "react"
 import Pizza from "./Components/Pizza"
 import Burger from "./Components/Burger"
 import UserContext from "./utils/userContext"
+
 import {
   createBrowserRouter,
   Outlet,
@@ -15,20 +16,21 @@ import {
 import Cake from "./Components/Cakes"
 import Sandwich from "./Components/Sandwhich"
 import DetailedRestMenu from "./Components/DetailedRestMenu"
+import ThemeContext from "./utils/themeContext"
 
 function App() {
-   const [user, setUser] = useState({
-     name: "Aayush",
-     mail: "ayush12@gmail.com"
-   })
- 
+  const [theme, setTheme] = useState({
+    mode: "light"
+  })
+
   return (
-    <UserContext.Provider value={{
-      user: user
+    <ThemeContext.Provider value={{
+      theme: theme,
+      setTheme: setTheme
     }}  >
       <Header />
       <Outlet />
-    </UserContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 const appRouter = createBrowserRouter([
