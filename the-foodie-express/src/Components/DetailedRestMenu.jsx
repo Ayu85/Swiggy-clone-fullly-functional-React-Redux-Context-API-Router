@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { imageAPI } from '../utils/Constants';
 import { FaCircleInfo } from "react-icons/fa6";
@@ -8,9 +8,19 @@ import DetailedShimmer from './DetailedShimmer';
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { CgTimelapse } from "react-icons/cg";
 import { TbCoinRupee } from "react-icons/tb";
+import ThemeContext from '../utils/themeContext';
 const AboutRestaurant = () => {
     const { id } = useParams();
     const [menuData, setMenuData] = useState(null);
+    const { theme } = useContext(ThemeContext)
+    const dark = {
+        background: "#18191A",
+        transition: "all .2s ease-in"
+
+    }
+    const light = {
+        background: "white"
+    }
     useEffect(() => {
         const getMenu = async () => {
             const rawData = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3176452&lng=82.9739144&restaurantId=${id}&catalog_qa=undefined&query=Sandwich&submitAction=ENTER`)
@@ -122,12 +132,22 @@ const AllMenu = () => {
     )
 }
 const DetailedRestMenu = () => {
+    const { theme } = useContext(ThemeContext)
+    const dark = {
+        background: "#18191A",
+        transition: "all .2s ease-in"
+
+    }
+    const light = {
+        background: "white",
+        transition: "all .2s ease-in"
+    }
     return (
-        <div className='flex justify-center mt-5 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
+        <div style={theme.mode === "dark" ? dark : light}><div className='flex justify-center pt-5 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
             <AboutRestaurant />
             <AllMenu />
 
-        </div>
+        </div></div>
     )
 }
 

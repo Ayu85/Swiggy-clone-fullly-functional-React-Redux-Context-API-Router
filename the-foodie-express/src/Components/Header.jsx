@@ -15,14 +15,14 @@ import ThemeContext from '../utils/themeContext'
 const Header = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
-   
     console.log(theme);
     const dark = {
-        background: "black",
-       
+        background: "#242526",
+        transition: "all .2s ease-in"
     }
     const light = {
-        background: "white"
+        background: "white",
+        transition: "all .2s ease-in"
     }
 
 
@@ -31,7 +31,7 @@ const Header = () => {
         border-b border-[#2d2e320e] '  style={theme.mode === "dark" ? dark : light}   >
             <div className='text-2xl font-bold head tracking-wider text-[#de9c37]'>The Foodie Express</div>
             <div >
-                <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b] ' >
+                <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b] ' style={theme.mode === "dark" ? { color: "#908d96" } : { color: "#5a626b" }}>
                     <NavLink to={'home'}><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoHomeOutline />Home</li></NavLink>
                     <Link>  <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><CiPercent />Offers</li></Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoIosHelpCircleOutline />Help</li>
@@ -53,7 +53,7 @@ const Header = () => {
 
                             });
                         } else {
-                            setLogged(true); toast.success(`Loggen in! Welcome ${user.name}`, {
+                            setLogged(true); toast.success("Loggen in!", {
                                 position: "top-center",
                                 autoClose: 1000,
                                 hideProgressBar: false,
@@ -73,12 +73,12 @@ const Header = () => {
                                     mode: "dark"
                                 })
                             }
-                            else{
+                            else {
                                 setTheme({
                                     mode: "light"
                                 })
                             }
-                        }}>Dark Mode <MdOutlineDarkMode /></li>
+                        }}>{theme.mode === "light" ? "Dark Mode" : "Light mode"} <MdOutlineDarkMode /></li>
                     <ToastContainer position="top-center"
                         autoClose={1000}
                         hideProgressBar={false}

@@ -14,11 +14,21 @@ import biryani from "../assets/Biryani_2.webp"
 import Sandwich from "../assets/Sandwich.avif"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import ThemeContext from '../utils/themeContext'
 const Home = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("")
+    const { theme } = useContext(ThemeContext)
+    const dark = {
+        background: "#18191A",
+        transition: "all .2s ease-in"
 
+    }
+    const light = {
+        background: "white",
+        transition: "all .2s ease-in"
+    }
     useEffect(() => {
         const getDataAPI = async () => {
             const rawData = await fetch(API)
@@ -37,9 +47,9 @@ const Home = () => {
     }
 
     return filteredData?.length === 0 ? <Shimmer /> : (
-        <>
-            <><div className=' justify-center mt-10  mx-16 hidden md:flex '>
-                <input type="text" placeholder='Search taste near you' className='border-[#de9c37] border w-[550px] h-10  pl-2 text-[#2d2e32] focus:outline-none transition-all focus-within:bg-[#de9b3716]'
+        <div style={theme.mode === "dark" ? dark : light}>
+            <div><div className=' justify-center pt-10  mx-16 hidden md:flex '>
+                <input type="text" style={theme.mode === "dark" ? dark : light} placeholder='Search taste near you' className='border-[#de9c37] border w-[550px] h-10  pl-2 text-[#2d2e32] focus:outline-none transition-all focus-within:bg-[#de9b3716]'
                     onChange={(e) => {
                         setSearchText(e.target.value)
                         setFilteredData(getFilteredData(searchText));
@@ -50,8 +60,8 @@ const Home = () => {
                     setFilteredData(d);
                     console.log(d);
                 }} >Search</button>
-            </div></>
-            <div className='flex flex-wrap justify-center gap-5 mt-10 '>
+            </div></div>
+            <div className='flex flex-wrap justify-center gap-5 pt-10 '>
                 <Link to={"/pizza"}> <img src={pizza} width={130} alt="pizza" /></Link>
                 <Link to={"/burger"}> <img src={burger} width={130} alt="pizza" /></Link>
                 <Link to={"/cake"} > <img src={cake} width={130} alt="cake" /></Link>
@@ -68,7 +78,8 @@ const Home = () => {
                         return <Link to={"/restaurant/" + restaurants?.info?.id}><Card {...restaurants?.info} /></Link>
                     })
                 }
-            </div></>
+            </div>
+        </div>
     )
 }
 
