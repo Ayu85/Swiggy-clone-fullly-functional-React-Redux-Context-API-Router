@@ -21,13 +21,12 @@ function App() {
      name: "Aayush",
      mail: "ayush12@gmail.com"
    })
-  // const { user } = useContext(UserContext)
-
+ 
   return (
     <UserContext.Provider value={{
       user: user
     }}  >
-      <Header user={user} />
+      <Header />
       <Outlet />
     </UserContext.Provider>
   )

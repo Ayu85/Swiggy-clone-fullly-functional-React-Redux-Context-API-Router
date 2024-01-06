@@ -3,7 +3,7 @@ import star from "../assets/star.png"
 import { imageAPI } from '../utils/Constants'
 const Card = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     return (
-        <div className='w-[250px] aspect-square  flex flex-col hover:scale-[1.02] transition-all'>
+        <div className='w-[250px] aspect-square  flex flex-col hover:scale-[1.1] transition-all'>
             <div>
                 <img src={imageAPI + cloudinaryImageId} alt="" className='w-[230px] h-48 rounded-2xl' />
             </div>

@@ -18,14 +18,14 @@ const Home = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [searchText, setSearchText] = useState("")
-    
+
     useEffect(() => {
         const getDataAPI = async () => {
             const rawData = await fetch(API)
             const data = await rawData.json();
             console.log(data);
-            setRestaurantData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            setFilteredData(data?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setFilteredData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
         getDataAPI();
     }, [])
@@ -59,8 +59,8 @@ const Home = () => {
                 <img src={dosa} width={130} alt="pizza" />
                 <img src={biryani} width={130} alt="pizza" />
             </div>
-            <div className='border-b border border-slate-200 w-[75%] ml-[50%] -translate-x-[50%] mt-5'></div>
-            <h2 className='font-bold  text-2xl w-[80%] ml-[50%] -translate-x-[46%] mt-16 name'>Restaurants with online food delivery in Varanasi</h2>
+            <div className='border-b border justify-center border-slate-200 w-[75%] ml-[50%] -translate-x-[50%] mt-5'></div>
+            <h2 className='font-bold  text-2xl w-[80%] ml-[50%] -translate-x-[46%] mt-16 name'>Top Restaurant Chains in Varanasi</h2>
             <div className='flex justify-center mt-6 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
                 {/* <Card {...restaurantData[2]?.info} /> */}
                 {
