@@ -7,7 +7,8 @@ const CartPage = () => {
         <div>
             <h1>Cart Page</h1>
             <h1>{itemDetails.name}</h1>
-            <h2>{itemDetails.price}</h2>
+            <h2>{itemDetails.price.toString().substring(0, 3)}</h2>
+            <h2>{itemDetails.totalItems}</h2>
         </div>
     )
 }

@@ -20,8 +20,8 @@ import CartContext from "./utils/CartContext"
 function App() {
   const [itemDetails, setDetails] = useState({
     price: 0,
-    name: "no item added"
-
+    name: "no item added",
+    totalItems: 0
   })
   // const [theme, setTheme] = useState({
   //   mode: "light"
