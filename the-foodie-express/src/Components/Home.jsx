@@ -19,8 +19,10 @@ import { moreRestaurantsData } from '../utils/mockData'
 const Home = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
-    const [moreRestaurants, setMoreRestaurants] = useState()
+    const [moreRestaurants, setMoreRestaurants] = useState([]);
+    const [filteredMoreRest, setFilteredMoreRest] = useState()
     const [searchText, setSearchText] = useState("")
+    const [isTopRatedClicked, setIsTopRatedClicked] = useState(false)
     const { theme } = useContext(ThemeContext)
 
 
@@ -33,6 +35,7 @@ const Home = () => {
         background: "white",
         transition: "all .2s ease-in"
     }
+
     useEffect(() => {
         const getDataAPI = async () => {
             const rawData = await fetch(API)
@@ -41,15 +44,21 @@ const Home = () => {
             setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             setFilteredData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             setMoreRestaurants(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setFilteredMoreRest(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
         getDataAPI();
     }, [])
-    console.log(moreRestaurants);
+    // console.log(moreRestaurants);
     function getFilteredData(searchText) {
         const data = restaurantData.filter((items) => {
             return items?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase());
         })
         return data;
+    }
+    const filteredMoreRestFunction = () => {
+        return moreRestaurants.filter((rest) => {
+            return rest?.info?.avgRating > 4
+        })
     }
 
     return filteredData?.length === 0 ? <Shimmer /> : (
@@ -64,7 +73,7 @@ const Home = () => {
                 <button className='bg-[#de9c37] text-white w-24 h-10 ' onClick={() => {
                     const d = getFilteredData(searchText);
                     setFilteredData(d);
-                    console.log(d);
+
                 }} >Search</button>
             </div></div>
             <div className='flex flex-wrap justify-center gap-5 pt-10 '>
@@ -90,13 +99,24 @@ const Home = () => {
                 <button className='border-slate-300 border rounded-full py-2 px-3
                  m-2 ml-2 mr-2 text-sm text-zinc-600'>Fast Delivery</button>
                 <button className='border-slate-300 border rounded-full py-2 px-3
-                 m-2 ml-2 mr-2  text-sm text-zinc-600'>Top Rated(4+)</button>
+                 m-2 ml-2 mr-2  text-sm text-zinc-600' style={isTopRatedClicked === true ? { border: "1px solid black" } : {}} onClick={() => {
+                        if (isTopRatedClicked === false) {
+                            setIsTopRatedClicked(true)
+                            const temp = filteredMoreRestFunction();
+                            setFilteredMoreRest(temp)
+                        }
+                        else {
+                            setIsTopRatedClicked(false)
+                            setFilteredMoreRest(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+                        }
+
+                    }}>Top Rated(4+)</button>
 
             </div>
             <div className='flex justify-center mt-6 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
                 {/* <Card {...restaurantData[2]?.info} /> */}
                 {
-                    moreRestaurants?.map((restaurants) => {
+                    filteredMoreRest?.map((restaurants) => {
                         return <Link to={"/restaurant/" + restaurants?.info?.id}><Card {...restaurants?.info} /></Link>
                     })
                 }
