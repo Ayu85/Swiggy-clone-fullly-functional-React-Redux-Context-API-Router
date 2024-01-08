@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { BsMinecartLoaded } from "react-icons/bs";
 import { CiLogin } from "react-icons/ci";
@@ -15,6 +15,7 @@ const Header = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
     const { itemDetails } = useContext(CartContext)
+    console.log(itemDetails.totalItems);
     console.log(theme);
     const dark = {
         background: "#242526",
@@ -36,8 +37,8 @@ const Header = () => {
                     <Link>  <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><CiPercent />Offers</li></Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoIosHelpCircleOutline />Help</li>
                     </Link>
-                    <Link to={"cart"} ><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {itemDetails.totalItems}</li>
-                    </Link>
+                    <NavLink to={"cart"} ><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {itemDetails.totalItems}</li>
+                    </NavLink>
                     <Link className='flex items-center flex-col justify-center '><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
                         if (isLogged == true) {
                             setLogged(false)

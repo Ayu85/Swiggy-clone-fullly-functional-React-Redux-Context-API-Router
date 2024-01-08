@@ -74,8 +74,11 @@ const MenuCard = ({ name, description, imageId, price }) => {
                 <div>
                     <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
                     <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold' onClick={() => {
-                        itemDetails.totalItems = itemDetails.totalItems + 1
-                        itemDetails.price = itemDetails.price + price
+                        setDetails({
+                            price: itemDetails.price + price,
+                            name: name,
+                            totalItems: itemDetails.totalItems + 1
+                        })
 
                     }}>ADD</button>
                 </div>
