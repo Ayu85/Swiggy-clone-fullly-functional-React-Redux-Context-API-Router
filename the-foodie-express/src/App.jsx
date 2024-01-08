@@ -21,7 +21,7 @@ function App() {
   const [itemDetails, setDetails] = useState({
     price: 0,
     name: "no item added",
-    totalItems: 0
+    totalItems: 0,
   })
   // const [theme, setTheme] = useState({
   //   mode: "light"

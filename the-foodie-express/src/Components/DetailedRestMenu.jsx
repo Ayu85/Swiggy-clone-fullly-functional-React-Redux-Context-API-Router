@@ -77,7 +77,7 @@ const MenuCard = ({ name, description, imageId, price }) => {
                         setDetails({
                             price: itemDetails.price + price,
                             name: name,
-                            totalItems: itemDetails.totalItems + 1
+                            totalItems: itemDetails.totalItems + 1,
                         })
 
                     }}>ADD</button>

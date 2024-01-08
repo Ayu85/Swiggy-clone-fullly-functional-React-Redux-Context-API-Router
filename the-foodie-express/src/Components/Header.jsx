@@ -15,7 +15,6 @@ const Header = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
     const { itemDetails } = useContext(CartContext)
-    console.log(itemDetails.totalItems);
     console.log(theme);
     const dark = {
         background: "#242526",
