@@ -15,11 +15,15 @@ import Sandwich from "../assets/Sandwich.avif"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ThemeContext from '../utils/themeContext'
+import { moreRestaurantsData } from '../utils/mockData'
 const Home = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
+    const [moreRestaurants, setMoreRestaurants] = useState()
     const [searchText, setSearchText] = useState("")
     const { theme } = useContext(ThemeContext)
+
+
     const dark = {
         background: "#18191A",
         transition: "all .2s ease-in"
@@ -36,9 +40,11 @@ const Home = () => {
             console.log(data);
             setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             setFilteredData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setMoreRestaurants(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
         getDataAPI();
     }, [])
+    console.log(moreRestaurants);
     function getFilteredData(searchText) {
         const data = restaurantData.filter((items) => {
             return items?.info?.name?.toLowerCase()?.includes(searchText?.toLowerCase());
@@ -75,6 +81,22 @@ const Home = () => {
                 {/* <Card {...restaurantData[2]?.info} /> */}
                 {
                     filteredData?.map((restaurants) => {
+                        return <Link to={"/restaurant/" + restaurants?.info?.id}><Card {...restaurants?.info} /></Link>
+                    })
+                }
+            </div>
+            <h2 className='font-bold  text-2xl w-[80%] ml-[50%] -translate-x-[46%] mt-16 name'>Restaurants with online food delivery in Varanasi</h2>
+            <div className='font-bold  w-[80%] ml-[50%] -translate-x-[46%] '>
+                <button className='border-slate-300 border rounded-full py-2 px-3
+                 m-2 ml-2 mr-2 text-sm text-zinc-600'>Fast Delivery</button>
+                <button className='border-slate-300 border rounded-full py-2 px-3
+                 m-2 ml-2 mr-2  text-sm text-zinc-600'>Top Rated(4+)</button>
+
+            </div>
+            <div className='flex justify-center mt-6 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[50%]'>
+                {/* <Card {...restaurantData[2]?.info} /> */}
+                {
+                    moreRestaurants?.map((restaurants) => {
                         return <Link to={"/restaurant/" + restaurants?.info?.id}><Card {...restaurants?.info} /></Link>
                     })
                 }

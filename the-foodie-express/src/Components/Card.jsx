@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import star from "../assets/star.png"
 import { imageAPI } from '../utils/Constants'
 import ThemeContext from '../utils/themeContext'
+import { SlLocationPin } from "react-icons/sl";
 const Card = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avgRatingString }) => {
     const { theme } = useContext(ThemeContext)
     const dark = {
@@ -13,7 +14,7 @@ const Card = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avg
         transition: "all .2s ease-in"
     }
     return (
-        <div className='w-[250px] h-[300px]  flex flex-col hover:scale-[1.1] transition-all px-3 py-3 ' style={theme.mode === "dark" ? dark : light}>
+        <div className='w-[250px] h-[300px]  flex flex-col hover:scale-[1.1] transition-all px-3 py-3 rounded-xl ' style={theme.mode === "dark" ? dark : light}>
             <div>
                 <img src={imageAPI + cloudinaryImageId} alt="" className='w-[230px] h-48 rounded-2xl' />
             </div>
@@ -23,7 +24,7 @@ const Card = ({ name, areaName, avgRating, sla, cuisines, cloudinaryImageId, avg
                 <h3>{sla?.deliveryTime} MINS</h3>
             </div>
             <h4 className='w-[200px] overflow-hidden ml-3' style={theme.mode === "dark" ? { color: "#B0B3B8" } : { color: "#414449" }}>{cuisines?.join(",")}</h4>
-            <h5 className='ml-3' style={theme.mode === "dark" ? { color: "#B0B3B8" } : { color: "#414449" }}>{areaName}</h5>
+            <h5 className='ml-3 flex items-center gap-1' style={theme.mode === "dark" ? { color: "#B0B3B8" } : { color: "#414449" }}>{areaName}<SlLocationPin /></h5>
         </div>
     )
 }

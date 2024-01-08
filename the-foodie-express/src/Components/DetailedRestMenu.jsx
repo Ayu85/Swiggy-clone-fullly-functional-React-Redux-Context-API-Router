@@ -9,6 +9,7 @@ import { LiaRupeeSignSolid } from "react-icons/lia";
 import { CgTimelapse } from "react-icons/cg";
 import { TbCoinRupee } from "react-icons/tb";
 import ThemeContext from '../utils/themeContext';
+import { TbCircleDot } from "react-icons/tb";
 const AboutRestaurant = () => {
     const { id } = useParams();
     const [menuData, setMenuData] = useState(null);
@@ -57,14 +58,16 @@ const AboutRestaurant = () => {
     )
 }
 const MenuCard = ({ name, description, imageId, price }) => {
+    const { theme } = useContext(ThemeContext)
+
     return (
 
         <>
             <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
-                    <div className='text-xl font-semibold text-slate-600 mt-2'>{name}</div>
-                    <div className='flex items-center'><LiaRupeeSignSolid />{price?.toString()?.substring(0, 3)}</div>
-                    <div className='mt-4 text-slate-500 font-extralightlight'>{description?.substring(0, 50) || "Taste"}</div>
+                    <div className='text-xl font-semibold text-slate-600 mt-2' style={theme.mode === "dark" ? { color: "white" } : {}}>{name}</div>
+                    <div className='flex items-center' style={theme.mode === "dark" ? { color: "white" } : {}}><LiaRupeeSignSolid />{price?.toString()?.substring(0, 3)}</div>
+                    <div className='mt-4 text-slate-500 font-extralightlight' style={theme.mode === "dark" ? { color: "white" } : {}}>{description?.substring(0, 100) || "Taste"}</div>
                 </div>
                 <div>
                     <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
@@ -79,6 +82,7 @@ const AllMenu = () => {
     const [menu3, setMenu3] = useState([])
     const [menu4, setMenu4] = useState([])
     const { id } = useParams();
+    const { theme } = useContext(ThemeContext)
 
     useEffect(() => {
         const g = async () => {
@@ -96,7 +100,7 @@ const AllMenu = () => {
     // console.log(menu);
     return (
         <div className='flex flex-col w-[90%] '>
-            <div className='text-slate-700 font-bold text-xl font-sans'>⚫{menu[0]?.card?.info?.category || menu[1]?.card?.info?.category} ({menu.length})</div>
+            <div className='text-slate-700 font-bold text-xl font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu[0]?.card?.info?.category || menu[1]?.card?.info?.category} ({menu.length})</div>
             <div className='flex flex-wrap flex-col gap-5  '>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu?.map((items) => {
@@ -105,7 +109,7 @@ const AllMenu = () => {
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu2[0]?.card?.info?.category || menu2[1]?.card?.info?.category}({menu2.length})</div>
+                <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu2[0]?.card?.info?.category || menu2[1]?.card?.info?.category}({menu2.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu2?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
@@ -113,7 +117,7 @@ const AllMenu = () => {
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu3[1]?.card?.info?.category || menu3[1]?.card?.info?.category}({menu3.length})</div>
+                <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu3[1]?.card?.info?.category || menu3[1]?.card?.info?.category}({menu3.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu3?.map((items) => {
                         return <MenuCard {...items?.card?.info} />
@@ -121,7 +125,7 @@ const AllMenu = () => {
                 }
             </div>
             <div className='flex flex-wrap flex-col gap-5 mt-9 '>
-                <div className='text-xl font-bold text-black font-sans'>⚫{menu4[0]?.card?.info?.category || menu4[1]?.card?.info?.category}({menu4.length})</div>
+                <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu4[0]?.card?.info?.category || menu4[1]?.card?.info?.category}({menu4.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu4?.map((items) => {
                         return <MenuCard {...items?.card?.info} />

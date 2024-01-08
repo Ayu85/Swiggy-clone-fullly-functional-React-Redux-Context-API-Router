@@ -5,8 +5,6 @@ import { CiLogin } from "react-icons/ci";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { CiPercent } from "react-icons/ci";
 import { IoHomeOutline } from "react-icons/io5";
-import UserContext from '../utils/userContext';
-import { CiUser } from "react-icons/ci";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { MdOutlineDarkMode } from "react-icons/md";
@@ -27,8 +25,8 @@ const Header = () => {
 
 
     return (
-        <div className='flex justify-between items-center px-4 py-6 shadow-lg gap-2
-        border-b border-[#2d2e320e] '  style={theme.mode === "dark" ? dark : light}   >
+        <div className='flex justify-between items-center px-4 py-6 shadow-3xl gap-2
+        border-b-2 border-[#2d2e320e] '  style={theme.mode === "dark" ? dark : light}   >
             <div className='text-2xl font-bold head tracking-wider text-[#de9c37]'>The Foodie Express</div>
             <div >
                 <ul className='flex flex-wrap gap-8 text-lg font-semibold tracking-wide text-[#5a626b] ' style={theme.mode === "dark" ? { color: "#908d96" } : { color: "#5a626b" }}>

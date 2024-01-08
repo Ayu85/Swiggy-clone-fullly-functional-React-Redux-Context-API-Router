@@ -1,11 +1,9 @@
 import Header from "./Components/Header"
-import SearchBar from "./Components/SearchBar"
 import Home from "./Components/Home"
 import About from "./Components/About"
 import { useContext, useState } from "react"
 import Pizza from "./Components/Pizza"
 import Burger from "./Components/Burger"
-import UserContext from "./utils/userContext"
 
 import {
   createBrowserRouter,
@@ -27,7 +25,7 @@ function App() {
     <ThemeContext.Provider value={{
       theme: theme,
       setTheme: setTheme
-    }}  >
+    }} >
       <Header />
       <Outlet />
     </ThemeContext.Provider>
