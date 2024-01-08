@@ -10,10 +10,12 @@ import { CgTimelapse } from "react-icons/cg";
 import { TbCoinRupee } from "react-icons/tb";
 import ThemeContext from '../utils/themeContext';
 import { TbCircleDot } from "react-icons/tb";
+import CartContext from '../utils/CartContext';
 const AboutRestaurant = () => {
     const { id } = useParams();
     const [menuData, setMenuData] = useState(null);
     const { theme } = useContext(ThemeContext)
+    const { itemDetails } = useContext(CartContext)
     const dark = {
         background: "#18191A",
         transition: "all .2s ease-in"
@@ -59,7 +61,7 @@ const AboutRestaurant = () => {
 }
 const MenuCard = ({ name, description, imageId, price }) => {
     const { theme } = useContext(ThemeContext)
-
+    const { itemDetails } = useContext(CartContext)
     return (
 
         <>
@@ -71,7 +73,9 @@ const MenuCard = ({ name, description, imageId, price }) => {
                 </div>
                 <div>
                     <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
-                    <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold'>ADD</button>
+                    <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold' onClick={() => {
+                        itemDetails.price += price
+                    }}>ADD</button>
                 </div>
             </div></>
     )

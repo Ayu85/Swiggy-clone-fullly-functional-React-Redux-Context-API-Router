@@ -4,7 +4,7 @@ import About from "./Components/About"
 import { useContext, useState } from "react"
 import Pizza from "./Components/Pizza"
 import Burger from "./Components/Burger"
-
+import CartPage from "./Components/CartPage"
 import {
   createBrowserRouter,
   Outlet,
@@ -15,20 +15,35 @@ import Cake from "./Components/Cakes"
 import Sandwich from "./Components/Sandwhich"
 import DetailedRestMenu from "./Components/DetailedRestMenu"
 import ThemeContext from "./utils/themeContext"
+import CartContext from "./utils/CartContext"
 
 function App() {
-  const [theme, setTheme] = useState({
-    mode: "light"
-  })
+  const [itemDetails, setDetails] = useState({
+    price: 0,
+    name: "no item added"
 
+  })
+  // const [theme, setTheme] = useState({
+  //   mode: "light"
+  // })
+
+  // return (
+  //   <ThemeContext.Provider  value={{
+  //     theme: theme,
+  //     setTheme: setTheme
+  //   }} >
+  //     <Header />
+  //     <Outlet />
+  //   </ThemeContext.Provider>
+  // )
   return (
-    <ThemeContext.Provider value={{
-      theme: theme,
-      setTheme: setTheme
+    <CartContext.Provider value={{
+      itemDetails: itemDetails,
+      setDetails: setDetails
     }} >
       <Header />
       <Outlet />
-    </ThemeContext.Provider>
+    </CartContext.Provider>
   )
 }
 const appRouter = createBrowserRouter([
@@ -66,6 +81,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/restaurant/:id',
         element: <DetailedRestMenu />
+      },
+      {
+        path: '/cart',
+        element: <CartPage />
       }
 
     ]
