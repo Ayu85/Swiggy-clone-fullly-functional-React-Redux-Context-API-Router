@@ -36,7 +36,22 @@ const Header = () => {
                     <Link>  <li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><CiPercent />Offers</li></Link>
                     <Link><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><IoIosHelpCircleOutline />Help</li>
                     </Link>
-                    <NavLink to={"cart"} ><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {itemDetails.totalItems}</li>
+                    <NavLink to={isLogged === true ? "cart" : ""} ><li onClick={() => {
+                        if (isLogged === false) {
+                            toast.error('Please login to continue!', {
+                                position: "top-center",
+                                autoClose: 1000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+
+                            });
+                        }
+
+                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {itemDetails.totalItems}</li>
                     </NavLink>
                     <Link className='flex items-center flex-col justify-center '><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
                         if (isLogged == true) {
