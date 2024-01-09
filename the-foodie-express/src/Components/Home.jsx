@@ -23,6 +23,7 @@ const Home = () => {
     const [filteredMoreRest, setFilteredMoreRest] = useState()
     const [searchText, setSearchText] = useState("")
     const [isTopRatedClicked, setIsTopRatedClicked] = useState(false)
+    const [isFastDeliveryClicked, setIsFastDeliveryClicked] = useState(false)
     const { theme } = useContext(ThemeContext)
 
 
@@ -60,7 +61,11 @@ const Home = () => {
             return rest?.info?.avgRating > 4
         })
     }
-
+    const fastDeliveryFilter = () => {
+        return restaurantData.filter((rest) => {
+            return rest?.info?.sla?.deliveryTime < 30
+        })
+    }
     return filteredData?.length === 0 ? <Shimmer /> : (
         <div style={theme.mode === "dark" ? dark : light}>
             <div><div className=' justify-center pt-10  mx-16 hidden md:flex '>
@@ -97,7 +102,19 @@ const Home = () => {
             <h2 className='font-bold  text-2xl w-[80%] ml-[50%] -translate-x-[46%] mt-16 name'>Restaurants with online food delivery in Varanasi</h2>
             <div className='font-bold  w-[80%] ml-[50%] -translate-x-[46%] '>
                 <button className='border-slate-300 border rounded-full py-2 px-3
-                 m-2 ml-2 mr-2 text-sm text-zinc-600'>Fast Delivery</button>
+                 m-2 ml-2 mr-2 text-sm text-zinc-600' style={isFastDeliveryClicked === true ? { border: "1px solid black" } : {}}
+                    onClick={() => {
+                        if (isFastDeliveryClicked === false) {
+                            setIsFastDeliveryClicked(true);
+                            const temp = fastDeliveryFilter();
+                            setFilteredMoreRest(temp)
+
+                        }
+                        else {
+                            setIsFastDeliveryClicked(false)
+                            setFilteredMoreRest(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+                        }
+                    }}>Fast Delivery</button>
                 <button className='border-slate-300 border rounded-full py-2 px-3
                  m-2 ml-2 mr-2  text-sm text-zinc-600' style={isTopRatedClicked === true ? { border: "1px solid black" } : {}} onClick={() => {
                         if (isTopRatedClicked === false) {

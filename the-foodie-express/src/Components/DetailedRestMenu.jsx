@@ -67,16 +67,6 @@ const MenuCard = ({ name, description, imageId, price }) => {
     return (
 
         <>
-            <ToastContainer position="top-center"
-                autoClose={1000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="colored" />
             <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
                     <div className='text-xl font-semibold text-slate-600 mt-2' style={theme.mode === "dark" ? { color: "white" } : {}}>{name}</div>
