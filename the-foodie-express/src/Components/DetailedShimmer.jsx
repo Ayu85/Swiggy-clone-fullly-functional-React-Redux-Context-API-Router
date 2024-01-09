@@ -20,17 +20,17 @@ const DetailedShimmer = () => {
     return (
         <div className='flex justify-center mt-10 flex-wrap gap-8 w-[80%] ml-[50%] -translate-x-[31%]'>
             <Card />
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
-            <MenuShimmer/>
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
+            <MenuShimmer />
 
         </div>
     )

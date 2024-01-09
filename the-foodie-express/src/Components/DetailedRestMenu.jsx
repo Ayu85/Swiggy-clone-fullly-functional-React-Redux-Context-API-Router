@@ -11,6 +11,8 @@ import { TbCoinRupee } from "react-icons/tb";
 import ThemeContext from '../utils/themeContext';
 import { TbCircleDot } from "react-icons/tb";
 import CartContext from '../utils/CartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 const AboutRestaurant = () => {
     const { id } = useParams();
     const [menuData, setMenuData] = useState(null);
@@ -65,6 +67,16 @@ const MenuCard = ({ name, description, imageId, price }) => {
     return (
 
         <>
+            <ToastContainer position="top-center"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored" />
             <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
                     <div className='text-xl font-semibold text-slate-600 mt-2' style={theme.mode === "dark" ? { color: "white" } : {}}>{name}</div>
@@ -79,6 +91,16 @@ const MenuCard = ({ name, description, imageId, price }) => {
                             name: name,
                             totalItems: itemDetails.totalItems + 1,
                         })
+                        toast.info(`${name} added to cart`, {
+                            position: "top-center",
+                            autoClose: 2000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                        });
 
                     }}>ADD</button>
                 </div>
