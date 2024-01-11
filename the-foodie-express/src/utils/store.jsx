@@ -1,6 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-const ayushStore = configureStore({})
+import cartSlice from "./slices/cartSlice";
+const store = configureStore({
+    reducer: {
+        cart: cartSlice
+    }
+})
 export default store;
 
 // whole big store created

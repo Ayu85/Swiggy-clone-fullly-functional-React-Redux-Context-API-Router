@@ -10,10 +10,13 @@ import 'react-toastify/dist/ReactToastify.css'
 import { MdOutlineDarkMode } from "react-icons/md";
 import ThemeContext from '../utils/themeContext'
 import CartContext from '../utils/CartContext';
+import { useSelector } from 'react-redux';
+import store from '../utils/store';
 
 const Header = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
+    const cartItemCount=useSelector(store=>store.cart.items)
     // const { itemDetails } = useContext(CartContext)
     console.log(theme);
     const dark = {
@@ -51,7 +54,7 @@ const Header = () => {
                             });
                         }
 
-                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart </li>
+                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {cartItemCount.length} </li>
                     </NavLink>
                     <Link className='flex items-center flex-col justify-center '><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
                         if (isLogged == true) {
@@ -96,7 +99,7 @@ const Header = () => {
                                     draggable: true,
                                     progress: undefined,
                                     theme: "colored",
-    
+
                                 });
                             }
                             else {
@@ -112,7 +115,7 @@ const Header = () => {
                                     draggable: true,
                                     progress: undefined,
                                     theme: "colored",
-    
+
                                 });
                             }
                         }}>{theme.mode === "light" ? "Dark Mode" : "Light mode"} <MdOutlineDarkMode /></li>
