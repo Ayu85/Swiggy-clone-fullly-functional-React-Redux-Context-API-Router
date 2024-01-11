@@ -42,8 +42,8 @@ const Home = () => {
             const rawData = await fetch(API)
             const data = await rawData.json();
             console.log(data);
-            setRestaurantData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-            setFilteredData(data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setRestaurantData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+            setFilteredData(data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             setMoreRestaurants(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
             setFilteredMoreRest(moreRestaurantsData[0]?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         }
@@ -62,7 +62,7 @@ const Home = () => {
         })
     }
     const fastDeliveryFilter = () => {
-        return restaurantData.filter((rest) => {
+        return moreRestaurants.filter((rest) => {
             return rest?.info?.sla?.deliveryTime < 30
         })
     }

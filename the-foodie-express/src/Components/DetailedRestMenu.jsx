@@ -63,7 +63,7 @@ const AboutRestaurant = () => {
 }
 const MenuCard = ({ name, description, imageId, price }) => {
     const { theme } = useContext(ThemeContext)
-    const { itemDetails, setDetails } = useContext(CartContext)
+    const { itemDetails, setDetails, setFullItem, fullItem } = useContext(CartContext)
     return (
 
         <>
@@ -81,6 +81,8 @@ const MenuCard = ({ name, description, imageId, price }) => {
                             name: name,
                             totalItems: itemDetails.totalItems + 1,
                         })
+                      
+
                         toast.info(`${name} added to cart`, {
                             position: "top-center",
                             autoClose: 2000,

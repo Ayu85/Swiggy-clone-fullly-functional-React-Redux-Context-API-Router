@@ -4,7 +4,7 @@ import About from "./Components/About"
 import { useContext, useState } from "react"
 import Pizza from "./Components/Pizza"
 import Burger from "./Components/Burger"
-import CartPage from "./Components/CartPage"
+// import CartPage from "./Components/CartPage"
 import {
   createBrowserRouter,
   Outlet,
@@ -13,39 +13,45 @@ import {
 } from "react-router-dom";
 import Cake from "./Components/Cakes"
 import Sandwich from "./Components/Sandwhich"
-import DetailedRestMenu from "./Components/DetailedRestMenu"
+// import DetailedRestMenu from "./Components/DetailedRestMenu"
 import ThemeContext from "./utils/themeContext"
 import CartContext from "./utils/CartContext"
-
+import { lazy, Suspense } from "react"
+import DetailedShimmer from "./Components/DetailedShimmer"
+const CartPage = lazy(() => import('./Components/CartPage'))
+const DetailedRestMenu = lazy(() => import("./Components/DetailedRestMenu"))
 function App() {
-  const [itemDetails, setDetails] = useState({
-    price: 0,
-    name: "no item added",
-    totalItems: 0,
-  })
-  // const [theme, setTheme] = useState({
-  //   mode: "light"
+  // const [itemDetails, setDetails] = useState({
+  //   price: 0,
+  //   name: "no item added",
+  //   totalItems: 0,
   // })
+  
+  const [theme, setTheme] = useState({
+    mode: "light"
+  })
 
-  // return (
-  //   <ThemeContext.Provider  value={{
-  //     theme: theme,
-  //     setTheme: setTheme
-  //   }} >
-  //     <Header />
-  //     <Outlet />
-  //   </ThemeContext.Provider>
-  // )
   return (
-    <CartContext.Provider value={{
-      itemDetails: itemDetails,
-      setDetails: setDetails
+    <ThemeContext.Provider  value={{
+      theme: theme,
+      setTheme: setTheme
     }} >
       <Header />
       <Outlet />
-    </CartContext.Provider>
+    </ThemeContext.Provider>
   )
 }
+//   return (
+//     <CartContext.Provider value={{
+//       itemDetails: itemDetails,
+//       setDetails: setDetails
+    
+//     }} >
+//       <Header />
+//       <Outlet />
+//     </CartContext.Provider>
+//   )
+// }
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -80,14 +86,16 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/restaurant/:id',
-        element: <DetailedRestMenu />
+        element: <Suspense fallback={<DetailedShimmer />}><DetailedRestMenu /></Suspense>
       },
       {
         path: '/cart',
-        element: <CartPage />
+        element: < Suspense fallback={<DetailedShimmer />}><CartPage /></Suspense >,
+        errorElement: <h1>Error</h1>
       }
 
     ]
   }
 ])
+
 export default appRouter

@@ -14,10 +14,10 @@ import CartContext from '../utils/CartContext';
 const Header = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
-    const { itemDetails } = useContext(CartContext)
+    // const { itemDetails } = useContext(CartContext)
     console.log(theme);
     const dark = {
-        background: "#242526",
+        background: "#051518",
         transition: "all .2s ease-in"
     }
     const light = {
@@ -51,7 +51,7 @@ const Header = () => {
                             });
                         }
 
-                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {itemDetails.totalItems}</li>
+                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart </li>
                     </NavLink>
                     <Link className='flex items-center flex-col justify-center '><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
                         if (isLogged == true) {
@@ -87,11 +87,33 @@ const Header = () => {
                                 setTheme({
                                     mode: "dark"
                                 })
+                                toast.success('Dark mode enabled!', {
+                                    position: "top-center",
+                                    autoClose: 1000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "colored",
+    
+                                });
                             }
                             else {
                                 setTheme({
                                     mode: "light"
                                 })
+                                toast.error('Dark mode disabled!', {
+                                    position: "top-center",
+                                    autoClose: 1000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                    theme: "colored",
+    
+                                });
                             }
                         }}>{theme.mode === "light" ? "Dark Mode" : "Light mode"} <MdOutlineDarkMode /></li>
                     <ToastContainer position="top-center"
