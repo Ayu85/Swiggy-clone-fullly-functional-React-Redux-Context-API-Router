@@ -18,6 +18,8 @@ import ThemeContext from "./utils/themeContext"
 import CartContext from "./utils/CartContext"
 import { lazy, Suspense } from "react"
 import DetailedShimmer from "./Components/DetailedShimmer"
+import { Provider } from "react-redux"
+import ayushStore from "./utils/store"
 const CartPage = lazy(() => import('./Components/CartPage'))
 const DetailedRestMenu = lazy(() => import("./Components/DetailedRestMenu"))
 function App() {
@@ -26,26 +28,28 @@ function App() {
   //   name: "no item added",
   //   totalItems: 0,
   // })
-  
+
   const [theme, setTheme] = useState({
     mode: "light"
   })
 
   return (
-    <ThemeContext.Provider  value={{
-      theme: theme,
-      setTheme: setTheme
-    }} >
-      <Header />
-      <Outlet />
-    </ThemeContext.Provider>
+    <Provider store={ayushStore}>
+      <ThemeContext.Provider value={{
+        theme: theme,
+        setTheme: setTheme
+      }} >
+        <Header />
+        <Outlet />
+      </ThemeContext.Provider>
+      </Provider>
   )
 }
 //   return (
 //     <CartContext.Provider value={{
 //       itemDetails: itemDetails,
 //       setDetails: setDetails
-    
+
 //     }} >
 //       <Header />
 //       <Outlet />
