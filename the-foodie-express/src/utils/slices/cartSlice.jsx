@@ -20,4 +20,58 @@ const cartSlice = createSlice({ //a part of redux store
 
 })
 export default cartSlice.reducer;
-export const{ addItem, removeItem, clearCart }= cartSlice.actions
+export const { addItem, removeItem, clearCart } = cartSlice.actions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+1-configureStore()
+2-<Provider store={store}></Provider>
+3-create cart slice 
+        - createSlice({
+            name:cart,
+            initialState:{
+                items:[]
+            },
+            reducers:{
+                aditem=(state,payload)=>{}
+                clearcart=(state)={}
+            }
+        })
+
+      - export default cartSlice.reducer
+      -export const {addItem,clearcart}=cartSlice.actions;
+      
+4- configureStore({
+   reducer:{
+     cart:cartSlice
+    }
+})  
+5-subscribe to store
+const cartItems={store=>store.cart.items}    
+*/
