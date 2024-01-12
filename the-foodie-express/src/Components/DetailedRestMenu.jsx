@@ -13,7 +13,7 @@ import { TbCircleDot } from "react-icons/tb";
 import CartContext from '../utils/CartContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
-import cartSlice, { addItem } from '../utils/slices/cartSlice';
+import cartSlice, { addItem, addRestName } from '../utils/slices/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import store from '../utils/store';
 const AboutRestaurant = () => {
@@ -64,23 +64,31 @@ const AboutRestaurant = () => {
         </div>
     )
 }
-const MenuCard = ({ name, description, imageId, price }) => {
+const MenuCard = (props) => {
+    const name = props?.data?.name
+    const price = props?.data?.price
+    const imageId = props?.data?.imageId
+    const description = props?.data?.description
+    const rName = props?.rName?.name
+    const rLogo = props?.rName?.cloudinaryImageId
     const { theme } = useContext(ThemeContext)
     const dispatch = useDispatch();
     const cartItems = useSelector(store => store.cart.items)
-    // console.log(cartItems);
+    const restaurantName = useSelector(store => store.cart.restName)
+    // console.log(props.restaurantName?.name);
+    console.log("namsasees", rName);
     // const { itemDetails, setDetails, setFullItem, fullItem } = useContext(CartContext)
     return (
 
         <>
             <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
-                    <div className='text-xl font-semibold text-slate-600 mt-2' style={theme.mode === "dark" ? { color: "white" } : {}}>{name}</div>
-                    <div className='flex items-center' style={theme.mode === "dark" ? { color: "white" } : {}}><LiaRupeeSignSolid />{price / 100}</div>
-                    <div className='mt-4 text-slate-500 font-extralightlight' style={theme.mode === "dark" ? { color: "white" } : {}}>{description?.substring(0, 100) || "Taste"}</div>
+                    <div className='text-xl font-semibold text-slate-600 mt-2' style={theme.mode === "dark" ? { color: "white" } : {}}>{props?.data?.name}</div>
+                    <div className='flex items-center' style={theme.mode === "dark" ? { color: "white" } : {}}><LiaRupeeSignSolid />{props?.data?.price / 100}</div>
+                    <div className='mt-4 text-slate-500 font-extralightlight' style={theme.mode === "dark" ? { color: "white" } : {}}>{props?.data?.description?.substring(0, 100) || "Taste"}</div>
                 </div>
                 <div>
-                    <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
+                    <img src={imageAPI + props?.data?.imageId} alt="" width={100} className='aspect-square' />
                     <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold' onClick={() => {
                         // setDetails({ this was for context api
                         //      price: itemDetails.price + price,
@@ -88,7 +96,9 @@ const MenuCard = ({ name, description, imageId, price }) => {
                         //     totalItems: itemDetails.totalItems + 1,
                         // })
 
-                        dispatch(addItem({name,price,imageId}))
+                        dispatch(addItem({ name, price, imageId }))
+                        if (restaurantName.length == 0)
+                            dispatch(addRestName({ rName, rLogo }))
                         toast.info(`${name} added to cart`, {
                             position: "top-center",
                             autoClose: 2000,
@@ -110,6 +120,7 @@ const AllMenu = () => {
     const [menu2, setMenu2] = useState([])
     const [menu3, setMenu3] = useState([])
     const [menu4, setMenu4] = useState([])
+    const [restName, setRestName] = useState()
     const { id } = useParams();
     const { theme } = useContext(ThemeContext)
 
@@ -117,14 +128,15 @@ const AllMenu = () => {
         const g = async () => {
             const r = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=25.3176452&lng=82.9739144&restaurantId=${id}&catalog_qa=undefined&query=Sandwich&submitAction=ENTER`)
             const s = await r.json();
+            setRestName(s?.data?.cards[0]?.card?.card?.info)
             setMenu(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
             setMenu2(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards)
             setMenu3(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card?.card?.itemCards)
             setMenu4(s?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[7].card?.card?.itemCards)
-
             console.log("new", s);
         }
         g();
+        // console.log("name",restName);
     }, [])
     // console.log(menu);
     return (
@@ -133,7 +145,7 @@ const AllMenu = () => {
             <div className='flex flex-wrap flex-col gap-5  '>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu?.map((items) => {
-                        return <MenuCard {...items?.card?.info} />
+                        return <MenuCard data={items?.card?.info} rName={restName} />
                     })
                 }
             </div>
@@ -141,7 +153,7 @@ const AllMenu = () => {
                 <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu2[0]?.card?.info?.category || menu2[1]?.card?.info?.category}({menu2.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu2?.map((items) => {
-                        return <MenuCard {...items?.card?.info} />
+                        return <MenuCard data={items?.card?.info} rName={restName} />
                     })
                 }
             </div>
@@ -149,7 +161,7 @@ const AllMenu = () => {
                 <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu3[1]?.card?.info?.category || menu3[1]?.card?.info?.category}({menu3.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu3?.map((items) => {
-                        return <MenuCard {...items?.card?.info} />
+                        return <MenuCard data={items?.card?.info} rName={restName} />
                     })
                 }
             </div>
@@ -157,7 +169,7 @@ const AllMenu = () => {
                 <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu4[0]?.card?.info?.category || menu4[1]?.card?.info?.category}({menu4.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu4?.map((items) => {
-                        return <MenuCard {...items?.card?.info} />
+                        return <MenuCard data={items?.card?.info} rName={restName} />
                     })
                 }
             </div>

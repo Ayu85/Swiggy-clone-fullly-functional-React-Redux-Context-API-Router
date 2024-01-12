@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({ //a part of redux store 
     name: "cart",  //name of the slice inside redux store
     initialState: {    //initial state of the cart
-        items: []
+        items: [],
+        restName: []
     },
     reducers: {
         addItem: (state, action) => {
@@ -14,13 +15,16 @@ const cartSlice = createSlice({ //a part of redux store
         },
         clearCart: (state) => {
             state.items = []  // to clear the whole cart at once
+        },
+        addRestName: (state,action) => {
+            state.restName.push(action.payload)
         }
 
     }
 
 })
 export default cartSlice.reducer;
-export const { addItem, removeItem, clearCart } = cartSlice.actions
+export const { addItem, removeItem, clearCart,addRestName } = cartSlice.actions
 
 
 
