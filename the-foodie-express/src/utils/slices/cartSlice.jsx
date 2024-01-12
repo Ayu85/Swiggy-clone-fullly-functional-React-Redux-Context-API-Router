@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({ //a part of redux store 
     name: "cart",  //name of the slice inside redux store
     initialState: {    //initial state of the cart
-        items: ["Boondi Laddu", "Rasmalai"]
+        items: []
     },
     reducers: {
         addItem: (state, action) => {
@@ -35,22 +35,8 @@ export const { addItem, removeItem, clearCart } = cartSlice.actions
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
-1-configureStore()
+1-const store=configureStore({})
 2-<Provider store={store}></Provider>
 3-create cart slice 
         - createSlice({

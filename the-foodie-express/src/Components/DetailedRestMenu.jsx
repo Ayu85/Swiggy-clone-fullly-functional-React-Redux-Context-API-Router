@@ -13,6 +13,9 @@ import { TbCircleDot } from "react-icons/tb";
 import CartContext from '../utils/CartContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import cartSlice, { addItem } from '../utils/slices/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import store from '../utils/store';
 const AboutRestaurant = () => {
     const { id } = useParams();
     const [menuData, setMenuData] = useState(null);
@@ -63,26 +66,29 @@ const AboutRestaurant = () => {
 }
 const MenuCard = ({ name, description, imageId, price }) => {
     const { theme } = useContext(ThemeContext)
-    const { itemDetails, setDetails, setFullItem, fullItem } = useContext(CartContext)
+    const dispatch = useDispatch();
+    const cartItems = useSelector(store => store.cart.items)
+    console.log(cartItems);
+    // const { itemDetails, setDetails, setFullItem, fullItem } = useContext(CartContext)
     return (
 
         <>
             <div className='flex flex-wrap gap-10 justify-between  items-center border-b border-slate-200 py-10'>
                 <div>
                     <div className='text-xl font-semibold text-slate-600 mt-2' style={theme.mode === "dark" ? { color: "white" } : {}}>{name}</div>
-                    <div className='flex items-center' style={theme.mode === "dark" ? { color: "white" } : {}}><LiaRupeeSignSolid />{price?.toString()?.substring(0, 3)}</div>
+                    <div className='flex items-center' style={theme.mode === "dark" ? { color: "white" } : {}}><LiaRupeeSignSolid />{price / 100}</div>
                     <div className='mt-4 text-slate-500 font-extralightlight' style={theme.mode === "dark" ? { color: "white" } : {}}>{description?.substring(0, 100) || "Taste"}</div>
                 </div>
                 <div>
                     <img src={imageAPI + imageId} alt="" width={100} className='aspect-square' />
                     <button className='border-slate-300 border px-9 py-1 text-sm text-green-500 font-semibold' onClick={() => {
-                        setDetails({
-                            price: itemDetails.price + price,
-                            name: name,
-                            totalItems: itemDetails.totalItems + 1,
-                        })
-                      
+                        // setDetails({ this was for context api
+                        //      price: itemDetails.price + price,
+                        //     name: name,
+                        //     totalItems: itemDetails.totalItems + 1,
+                        // })
 
+                        dispatch(addItem(name))
                         toast.info(`${name} added to cart`, {
                             position: "top-center",
                             autoClose: 2000,
