@@ -68,7 +68,7 @@ const MenuCard = ({ name, description, imageId, price }) => {
     const { theme } = useContext(ThemeContext)
     const dispatch = useDispatch();
     const cartItems = useSelector(store => store.cart.items)
-    console.log(cartItems);
+    // console.log(cartItems);
     // const { itemDetails, setDetails, setFullItem, fullItem } = useContext(CartContext)
     return (
 
@@ -88,7 +88,7 @@ const MenuCard = ({ name, description, imageId, price }) => {
                         //     totalItems: itemDetails.totalItems + 1,
                         // })
 
-                        dispatch(addItem(name))
+                        dispatch(addItem({name,price,imageId}))
                         toast.info(`${name} added to cart`, {
                             position: "top-center",
                             autoClose: 2000,
