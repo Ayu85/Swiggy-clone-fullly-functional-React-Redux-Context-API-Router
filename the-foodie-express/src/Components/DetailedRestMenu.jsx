@@ -95,7 +95,6 @@ const MenuCard = (props) => {
                         //     name: name,
                         //     totalItems: itemDetails.totalItems + 1,
                         // })
-
                         dispatch(addItem({ name, price, imageId }))
                         if (restaurantName.length == 0)
                             dispatch(addRestName({ rName, rLogo }))
