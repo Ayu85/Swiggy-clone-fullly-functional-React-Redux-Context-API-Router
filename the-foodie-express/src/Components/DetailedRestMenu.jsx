@@ -70,11 +70,11 @@ const MenuCard = (props) => {
     const imageId = props?.data?.imageId
     const description = props?.data?.description
     const rName = props?.rName?.name
-    const rLogo = props?.rName?.cloudinaryImageId
+    const rLogo=props?.rName?.cloudinaryImageId
     const { theme } = useContext(ThemeContext)
     const dispatch = useDispatch();
     const cartItems = useSelector(store => store.cart.items)
-    const restaurantName = useSelector(store => store.cart.restName)
+    const restaurantName=useSelector(store=>store.cart.restName)
     // console.log(props.restaurantName?.name);
     console.log("namsasees", rName);
     // const { itemDetails, setDetails, setFullItem, fullItem } = useContext(CartContext)
@@ -95,9 +95,10 @@ const MenuCard = (props) => {
                         //     name: name,
                         //     totalItems: itemDetails.totalItems + 1,
                         // })
+
                         dispatch(addItem({ name, price, imageId }))
-                        if (restaurantName.length == 0)
-                            dispatch(addRestName({ rName, rLogo }))
+                        if(restaurantName.length==0)
+                        dispatch(addRestName({rName,rLogo}))
                         toast.info(`${name} added to cart`, {
                             position: "top-center",
                             autoClose: 2000,
@@ -152,7 +153,7 @@ const AllMenu = () => {
                 <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu2[0]?.card?.info?.category || menu2[1]?.card?.info?.category}({menu2.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu2?.map((items) => {
-                        return <MenuCard data={items?.card?.info} rName={restName} />
+                        return <MenuCard data={items?.card?.info}  rName={restName}/>
                     })
                 }
             </div>
@@ -160,7 +161,7 @@ const AllMenu = () => {
                 <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu3[1]?.card?.info?.category || menu3[1]?.card?.info?.category}({menu3.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu3?.map((items) => {
-                        return <MenuCard data={items?.card?.info} rName={restName} />
+                        return <MenuCard data={items?.card?.info} rName={restName}/>
                     })
                 }
             </div>
@@ -168,7 +169,7 @@ const AllMenu = () => {
                 <div className='text-xl font-bold text-black font-sans flex items-center gap-1' style={theme.mode === "dark" ? { color: "white" } : {}}><TbCircleDot />{menu4[0]?.card?.info?.category || menu4[1]?.card?.info?.category}({menu4.length})</div>
                 {/* <MenuCard  {...menu[0]?.card?.info} /> */
                     menu4?.map((items) => {
-                        return <MenuCard data={items?.card?.info} rName={restName} />
+                        return <MenuCard data={items?.card?.info} rName={restName}/>
                     })
                 }
             </div>

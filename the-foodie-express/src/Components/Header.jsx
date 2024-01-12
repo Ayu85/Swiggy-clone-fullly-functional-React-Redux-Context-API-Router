@@ -16,7 +16,7 @@ import store from '../utils/store';
 const Header = () => {
     const { theme, setTheme } = useContext(ThemeContext)
     const [isLogged, setLogged] = useState(false)
-    const cartItemCount=useSelector(store=>store.cart.items)
+    const cartItemCount = useSelector(store => store.cart.items)
     // const { itemDetails } = useContext(CartContext)
     console.log(theme);
     const dark = {
@@ -54,7 +54,7 @@ const Header = () => {
                             });
                         }
 
-                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100'><BsMinecartLoaded />Cart {cartItemCount.length} </li>
+                    }} className='flex items-center gap-1 hover:text-orange-600 transition duration-100' style={cartItemCount.length !== 0 ? { color: "green" } : {}}><BsMinecartLoaded />Cart {cartItemCount.length} </li>
                     </NavLink>
                     <Link className='flex items-center flex-col justify-center '><li className='flex items-center gap-1 hover:text-orange-600 transition duration-100' onClick={() => {
                         if (isLogged == true) {
